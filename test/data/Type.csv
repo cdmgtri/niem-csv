@@ -1,0 +1,371 @@
+TypeNamespacePrefix,TypeName,QualifiedType,ContentStyle,SimpleStyle,IsMetadata,IsAdapter,IsAugmentation,Keywords,ExampleContent,UsageInfo,Definition,SimpleTypeNamespacePrefix,SimpleTypeName,SimpleQualifiedType,ParentTypeNamespacePrefix,ParentTypeName,ParentQualifiedType
+ag,AgricultureProductionPlanType,ag:AgricultureProductionPlanType,CCC,,0,0,0,,,,"A data type that contains agriculture production plan related information including location, product, acreage, planting, practice and data modifications details.",,,,,,
+ag,CustomerInfoType,ag:CustomerInfoType,CCC,,0,0,0,,,,A data type containing customer information including identification and name.,,,,,,
+ag,FarmCropAcreageType,ag:FarmCropAcreageType,CCC,,0,0,0,,,,"A data type that contains farm related information including FSA state and county, farm number, and one to many tracts.",,,,,,
+ag,FieldCropAcreageType,ag:FieldCropAcreageType,CCC,,0,0,0,,,,"A data type that contains field related information including CLU related information, field number, and one to many agriculture production plans.",,,,,,
+ag,GeospatialSourceInfoType,ag:GeospatialSourceInfoType,CCC,,0,0,0,,,,"A data type that contains the sourcing of geospatial information that include the method of sourcing, modifications made, and how they were processed.",,,,,,
+ag,ProducerShareType,ag:ProducerShareType,CCC,,0,0,0,,,,"A data type that contains producer's share in the benefits coming from a crop, expressed as a percentage.",,,,,,
+ag,TractCropAcreageType,ag:TractCropAcreageType,CCC,,0,0,0,,,,"A data type that contains tract related information including tract number, and one to many fields.",,,,,,
+nc,MetadataType,nc:MetadataType,CCC,,1,0,0,"SuperType, attributes",,,A data type for information that further qualifies primary data; data about data.,,,,,,
+geo,CurveType,geo:CurveType,CCC,,0,1,0,,,,"A data type for a curve is a 1-dimensional primitive. Curves are continuous, connected, and have a measurable length in terms of the coordinate system.  A curve is composed of one or more curve segments. Each curve segment within a curve may be defined using a different",,,,,,
+geo,EllipseType,geo:EllipseType,CCC,,0,1,0,,,,"A data type for an ellipse specified by a point, major axis, minor axis and rotation.",,,,,,
+geo,EnvelopeType,geo:EnvelopeType,CCC,,0,1,0,,,,"A data type for an envelope, which defines an extent using a pair of positions defining opposite corners in arbitrary dimensions. The first direct position is the ""lower corner"" (a coordinate position consisting of all the minimal ordinates for each dimension for all points within",,,,,,
+hs,MetadataType,hs:MetadataType,CCC,,1,0,0,,,,A data type for metadata about a record.,,,,,,
+hs,MilitarySummaryAugmentationType,hs:MilitarySummaryAugmentationType,CCC,,0,0,1,,,,A data type for additional information about a person's military service.,,,,,,
+hs,OrganizationAugmentationType,hs:OrganizationAugmentationType,CCC,,0,0,1,,,,A data type for additional information about an organization.,,,,,,
+hs,PersonAugmentationType,hs:PersonAugmentationType,CCC,,0,0,1,,,,A data type for additional information about a person.,,,,,,
+hs,ProgramAugmentationType,hs:ProgramAugmentationType,CCC,,0,0,1,,,,A data type for additional information about a program.,,,,,,
+cbrn,NonNegativeDoubleListSimpleType,cbrn:NonNegativeDoubleListSimpleType,S,list,0,0,0,,,,A data type for a list of doubles with value of zero or greater.,cbrn,NonNegativeDoubleSimpleType,cbrn:NonNegativeDoubleSimpleType,,,
+cbrn,PositiveDoubleListSimpleType,cbrn:PositiveDoubleListSimpleType,S,list,0,0,0,,,,A data type for a list of doubles restricted to positive values.,cbrn,PositiveDoubleSimpleType,cbrn:PositiveDoubleSimpleType,,,
+biom,LatentFrictionRidgePositionCodeSimpleType,biom:LatentFrictionRidgePositionCodeSimpleType,S,union,0,0,0,,,,A data type for latent friction ridge positions,,,,,,
+biom,LegacyExemplarFingerPositionCodeSimpleType,biom:LegacyExemplarFingerPositionCodeSimpleType,S,union,0,0,0,,,,"A data type for a code representing legacy (i.e., Type-4) tenprint exemplars",,,,,,
+apco,AlarmEventCategoryCodeSimpleType,apco:AlarmEventCategoryCodeSimpleType,S,atomic,0,0,0,,,,A data type for kinds of alarm events.,xs,token,xs:token,,,
+apco,AlarmEventCategoryCodeType,apco:AlarmEventCategoryCodeType,CSC,,0,0,0,,,,A data type for kinds of alarm events.,apco,AlarmEventCategoryCodeSimpleType,apco:AlarmEventCategoryCodeSimpleType,,,
+apco,AlarmEventLocationCategoryCodeSimpleType,apco:AlarmEventLocationCategoryCodeSimpleType,S,atomic,0,0,0,,,,A data type for the kinds of location at which an alarm event occurs.,xs,token,xs:token,,,
+apco,AlarmEventLocationCategoryCodeType,apco:AlarmEventLocationCategoryCodeType,CSC,,0,0,0,,,,A data type for the kinds of location at which an alarm event occurs.,apco,AlarmEventLocationCategoryCodeSimpleType,apco:AlarmEventLocationCategoryCodeSimpleType,,,
+apco,AlarmEventResponseActionCodeSimpleType,apco:AlarmEventResponseActionCodeSimpleType,S,atomic,0,0,0,,,,A data type for actions requested of an alarm event responder.,xs,token,xs:token,,,
+apco,AlarmEventResponseActionCodeType,apco:AlarmEventResponseActionCodeType,CSC,,0,0,0,,,,A data type for actions requested of an alarm event responder.,apco,AlarmEventResponseActionCodeSimpleType,apco:AlarmEventResponseActionCodeSimpleType,,,
+apco,IncidentCategoryCodeSimpleType,apco:IncidentCategoryCodeSimpleType,S,atomic,0,0,0,,,,A data type for incident codes.,xs,token,xs:token,,,
+apco,IncidentCategoryCodeType,apco:IncidentCategoryCodeType,CSC,atomic,0,0,0,,,,A data type for incident codes.,apco,IncidentCategoryCodeSimpleType,apco:IncidentCategoryCodeSimpleType,,,
+atf,ExplosiveComponentCodeSimpleType,atf:ExplosiveComponentCodeSimpleType,S,atomic,0,0,0,,,,A data type for an item contained within an explosive device designed to cause harm or damage when propelled by an explosion.,xs,token,xs:token,,,
+atf,ExplosiveComponentCodeType,atf:ExplosiveComponentCodeType,CSC,,0,0,0,,,,A data type for an item contained within an explosive device designed to cause harm or damage when propelled by an explosion.,atf,ExplosiveComponentCodeSimpleType,atf:ExplosiveComponentCodeSimpleType,,,
+atf,ExplosiveContainerCodeSimpleType,atf:ExplosiveContainerCodeSimpleType,S,atomic,0,0,0,,,,A data type for an object that contains an explosive substance or agent.,xs,token,xs:token,,,
+atf,ExplosiveContainerCodeType,atf:ExplosiveContainerCodeType,CSC,,0,0,0,,,,A data type for an object that contains an explosive substance or agent.,atf,ExplosiveContainerCodeSimpleType,atf:ExplosiveContainerCodeSimpleType,,,
+atf,ExplosiveFillerCodeSimpleType,atf:ExplosiveFillerCodeSimpleType,S,atomic,0,0,0,,,,A data type for a substance that can cause an explosion when ignited or detonated.,xs,token,xs:token,,,
+atf,ExplosiveFillerCodeType,atf:ExplosiveFillerCodeType,CSC,,0,0,0,,,,A data type for a substance that can cause an explosion when ignited or detonated.,atf,ExplosiveFillerCodeSimpleType,atf:ExplosiveFillerCodeSimpleType,,,
+atf,ExplosiveIgnitionCodeSimpleType,atf:ExplosiveIgnitionCodeSimpleType,S,atomic,0,0,0,,,,A data type for a means by which an explosive is ignited or detonated.,xs,token,xs:token,,,
+atf,ExplosiveIgnitionCodeType,atf:ExplosiveIgnitionCodeType,CSC,,0,0,0,,,,A data type for a means by which an explosive is ignited or detonated.,atf,ExplosiveIgnitionCodeSimpleType,atf:ExplosiveIgnitionCodeSimpleType,,,
+biom,AcquisitionLightingSpectrumCodeSimpleType,biom:AcquisitionLightingSpectrumCodeSimpleType,S,atomic,0,0,0,,,,A data type for a lighting spectrum used in capturing an iris image,xs,token,xs:token,,,
+biom,AcquisitionLightingSpectrumCodeType,biom:AcquisitionLightingSpectrumCodeType,CSC,,0,0,0,,,,A data type for a lighting spectrum used in capturing an iris image,biom,AcquisitionLightingSpectrumCodeSimpleType,biom:AcquisitionLightingSpectrumCodeSimpleType,,,
+biom,AcquisitionLightingSpectrumType,biom:AcquisitionLightingSpectrumType,CCC,,0,0,0,,,,A data type for a lighting spectrum used in capturing an image,,,,,,
+biom,AcquisitionSourceCodeSimpleType,biom:AcquisitionSourceCodeSimpleType,S,atomic,0,0,0,,,,A data type for a source acquisition code,xs,token,xs:token,,,
+biom,AcquisitionSourceCodeType,biom:AcquisitionSourceCodeType,CSC,,0,0,0,,,,A data type for a source acquisition code,biom,AcquisitionSourceCodeSimpleType,biom:AcquisitionSourceCodeSimpleType,,,
+biom,ANSIRecordCategoryCodeSimpleType,biom:ANSIRecordCategoryCodeSimpleType,S,atomic,0,0,0,,,,A data type for a kind of record based on ANSI/NIST-ITL 1-2013 (Obsolete),xs,integer,xs:integer,,,
+biom,ANSIRecordCategoryCodeType,biom:ANSIRecordCategoryCodeType,CSC,,0,0,0,,,,A data type for a kind of record (Obsolete),biom,ANSIRecordCategoryCodeSimpleType,biom:ANSIRecordCategoryCodeSimpleType,,,
+biom,AssociatedContextType,biom:AssociatedContextType,CCC,,0,0,0,,,,A data type for a reference to an associated context,,,,,,
+biom,AssuranceLogEntryType,biom:AssuranceLogEntryType,CCC,,0,0,0,,,,A data type for an information assurance log entry,,,,,,
+biom,AssuranceLogEventCodeSimpleType,biom:AssuranceLogEventCodeSimpleType,S,atomic,0,0,0,,,,A data type for an information assurance log event code,xs,token,xs:token,,,
+biom,AssuranceLogEventCodeType,biom:AssuranceLogEventCodeType,CSC,,0,0,0,,,,A data type for an information assurance log event code,biom,AssuranceLogEventCodeSimpleType,biom:AssuranceLogEventCodeSimpleType,,,
+biom,AudioCaptureDeviceCodeSimpleType,biom:AudioCaptureDeviceCodeSimpleType,S,atomic,0,0,0,,,,A data type for a description of an audio segment channel capture device.,xs,integer,xs:integer,,,
+biom,AudioCaptureDeviceCodeType,biom:AudioCaptureDeviceCodeType,CSC,,0,0,0,,,,A data type for a description of an audio segment channel capture device.,biom,AudioCaptureDeviceCodeSimpleType,biom:AudioCaptureDeviceCodeSimpleType,,,
+biom,AudioInformationType,biom:AudioInformationType,CCC,,0,0,0,,,,"A data type for a description of specific time segments within a voice recording, and their processing.",,,,,,
+biom,AudioObjectDescriptorCodeSimpleType,biom:AudioObjectDescriptorCodeSimpleType,S,atomic,0,0,0,,,,A data type for an enumeration of codes describing Audio Objects,xs,token,xs:token,,,
+biom,AudioObjectDescriptorCodeType,biom:AudioObjectDescriptorCodeType,CSC,,0,0,0,,,,A data type for a representation of codes describing an Audio Object,biom,AudioObjectDescriptorCodeSimpleType,biom:AudioObjectDescriptorCodeSimpleType,,,
+biom,AudioSourceRecorderType,biom:AudioSourceRecorderType,CCC,,0,0,0,,,,A data type for a set of information regarding the captured voice information,,,,,,
+biom,BiometricCaptureMetricType,biom:BiometricCaptureMetricType,CCC,,0,0,0,,,,A data type for representing Biometric Quality Metrics for the captured biometric image,,,,,,
+biom,BiometricCaptureType,biom:BiometricCaptureType,CCC,,0,0,0,,,,A data type for a set of information regarding the captured biometric information,,,,,,
+biom,BiometricCategoryCodeSimpleType,biom:BiometricCategoryCodeSimpleType,S,atomic,0,0,0,,,,A data type describing the kinds of biometrics used,xs,token,xs:token,,,
+biom,BiometricCategoryCodeType,biom:BiometricCategoryCodeType,CSC,,0,0,0,,,,A data type for a kind of biometric technology,biom,BiometricCategoryCodeSimpleType,biom:BiometricCategoryCodeSimpleType,,,
+biom,BiometricClassificationType,biom:BiometricClassificationType,CCC,,0,0,0,,,,A data type for the classification of the kind of the Biometric information in the message.,,,,,,
+biom,BiometricCoordinateType,biom:BiometricCoordinateType,CCC,,0,0,0,,,,A data type for coordinates that are used to identify the person biometrics of the biometric captured with the encounter when the capture is a composite biometric.,,,,,,
+biom,BiometricDataType,biom:BiometricDataType,CCC,,0,0,0,,,,A data type for a representation of the identifying Biometric in.,,,,,,
+biom,BoundaryShapeCodeSimpleType,biom:BoundaryShapeCodeSimpleType,S,atomic,0,0,0,,,,A data type for a shape of a boundary of a feature within an image,xs,token,xs:token,,,
+biom,BoundaryShapeCodeType,biom:BoundaryShapeCodeType,CSC,,0,0,0,,,,A data type for a shape of a boundary of a feature within an image,biom,BoundaryShapeCodeSimpleType,biom:BoundaryShapeCodeSimpleType,,,
+biom,CaptureDeviceMonitoringModeCodeSimpleType,biom:CaptureDeviceMonitoringModeCodeSimpleType,S,atomic,0,0,0,,,,A data type for a level of human monitoring for an image capture device,xs,token,xs:token,,,
+biom,CaptureDeviceMonitoringModeCodeType,biom:CaptureDeviceMonitoringModeCodeType,CSC,,0,0,0,,,,A data type for a level of human monitoring for an image capture device,biom,CaptureDeviceMonitoringModeCodeSimpleType,biom:CaptureDeviceMonitoringModeCodeSimpleType,,,
+biom,CaptureResolutionCodeSimpleType,biom:CaptureResolutionCodeSimpleType,S,atomic,0,0,0,,,,A data type for a minimum or native scanning resolution,xs,integer,xs:integer,,,
+biom,CaptureResolutionCodeType,biom:CaptureResolutionCodeType,CSC,,0,0,0,,,,A data type for a minimum or native scanning resolution,biom,CaptureResolutionCodeSimpleType,biom:CaptureResolutionCodeSimpleType,,,
+biom,CBEFFCategoryCodeSimpleType,biom:CBEFFCategoryCodeSimpleType,S,atomic,0,0,0,,,,A data type for a code for describing a biometric modality defined by CBEFF,xs,hexBinary,xs:hexBinary,,,
+biom,CBEFFCategoryCodeType,biom:CBEFFCategoryCodeType,CSC,,0,0,0,,,,A data type for describing a biometric modality defined by CBEFF,biom,CBEFFCategoryCodeSimpleType,biom:CBEFFCategoryCodeSimpleType,,,
+biom,CBEFFImageType,biom:CBEFFImageType,CCC,,0,0,0,,,,A data type for a CBEFF record,,,,biom,ImageType,biom:ImageType
+biom,CheiloscopicImageInformationType,biom:CheiloscopicImageInformationType,CCC,,0,0,0,,,,"A data type that is particularly useful if the image contained in this record is of an injury or latent image on a person. However, its use is not limited to such circumstances.",,,,,,
+biom,CodecCategoryCodeSimpleType,biom:CodecCategoryCodeSimpleType,S,atomic,0,0,0,,,,A data type for an enumeration of codecs capable of encoding or decoding a digital data stream or signal.,xs,token,xs:token,,,
+biom,CodecCategoryCodeType,biom:CodecCategoryCodeType,CSC,,0,0,0,,,,A data type for a representation of codecs capable of encoding or decoding a digital data stream or signal.,biom,CodecCategoryCodeSimpleType,biom:CodecCategoryCodeSimpleType,,,
+biom,CodecDetailsType,biom:CodecDetailsType,CCC,,0,0,0,,,,A data type for a container of descriptive information about the encoding of a digital media data file.,,,,,,
+biom,ContentDiaryInformationType,biom:ContentDiaryInformationType,CCC,,0,0,0,,,,A data type lists highly-detailed timings within the voice recording of specific audio segments of interest.,,,,biom,DiaryInformationType,biom:DiaryInformationType
+biom,ContentInformationType,biom:ContentInformationType,CCC,,0,0,0,,,,A data type for indicating a recording's diarization status and the diarizing agency,,,,,,
+biom,ContentRecordSummaryType,biom:ContentRecordSummaryType,CCC,,0,0,0,,,,A data type for a summary of the contents of one record in the transaction other than the Type-1 transaction record,,,,,,
+biom,ContextFileFormatType,biom:ContextFileFormatType,CCC,,0,0,0,,,,"A data type for a description of a file holding an associated context representation, and decoding instructions",,,,,,
+biom,ContextMediaDetailType,biom:ContextMediaDetailType,CCC,,0,0,0,,,,A data type for the details of a biometric context media file,,,,,,
+biom,CSPCodeSimpleType,biom:CSPCodeSimpleType,S,atomic,0,0,0,,,,A data type for each of the available color spaces for images,xs,token,xs:token,,,
+biom,CSPCodeType,biom:CSPCodeType,CSC,,0,0,0,,,,A data type for the available color spaces for images,biom,CSPCodeSimpleType,biom:CSPCodeSimpleType,,,
+biom,Decimal2DigitPrecisionSimpleType,biom:Decimal2DigitPrecisionSimpleType,S,atomic,0,0,0,,,,A data type for decimal values with 2 digit after decimal,xs,decimal,xs:decimal,,,
+biom,Decimal2DigitPrecisionType,biom:Decimal2DigitPrecisionType,CSC,,0,0,0,,,,A data type of decimal that has a 2 decimal places,biom,Decimal2DigitPrecisionSimpleType,biom:Decimal2DigitPrecisionSimpleType,,,
+biom,DeltaDirectionMeasureSimpleType,biom:DeltaDirectionMeasureSimpleType,S,atomic,0,0,0,,,,A data type for a direction of a delta,xs,nonNegativeInteger,xs:nonNegativeInteger,,,
+biom,DeltaDirectionMeasureType,biom:DeltaDirectionMeasureType,CSC,,0,0,0,,,,A data type for a direction of a delta,biom,DeltaDirectionMeasureSimpleType,biom:DeltaDirectionMeasureSimpleType,,,
+biom,DentalEncodingSystemInformationType,biom:DentalEncodingSystemInformationType,CCC,,0,0,0,,,,A data type for a set of information regarding the data collection schema that was used for the recording of dental information.,,,,,,
+biom,DentalHistoryDataInformationType,biom:DentalHistoryDataInformationType,CCC,,0,0,0,,,,"A data type for a description of the prior dental history of the subject, if known.",,,,,,
+biom,DentalRadiographImageInformationType,biom:DentalRadiographImageInformationType,CCC,,0,0,0,,,,A data type for the information specific to dental radiographic imagery.,,,,,,
+biom,DentalStudyReferenceCodeSimpleType,biom:DentalStudyReferenceCodeSimpleType,S,atomic,0,0,0,,,,A data type for dental casts and impressions reference code,xs,token,xs:token,,,
+biom,DentalStudyReferenceCodeType,biom:DentalStudyReferenceCodeType,CSC,,0,0,0,,,,A data type for dental casts and impressions reference code,biom,DentalStudyReferenceCodeSimpleType,biom:DentalStudyReferenceCodeSimpleType,,,
+biom,DentalStudyToothImprintInformationType,biom:DentalStudyToothImprintInformationType,CCC,,0,0,0,,,,A data type to transmit information about models fabricated from a dental arch impression or tooth imprints.,,,,,,
+biom,DentalSubjectInformationType,biom:DentalSubjectInformationType,CCC,,0,0,0,,,,A data type for a set of information regarding the status of the individual at the time when the relevant data was recorded.,,,,,,
+biom,DentalVisualImageCodeSimpleType,biom:DentalVisualImageCodeSimpleType,S,atomic,0,0,0,,,,A data type for a visual image view code,xs,token,xs:token,,,
+biom,DentalVisualImageCodeType,biom:DentalVisualImageCodeType,CSC,,0,0,0,,,,A data type for a visual image view code,biom,DentalVisualImageCodeSimpleType,biom:DentalVisualImageCodeSimpleType,,,
+biom,DentalVisualImageDataInformationType,biom:DentalVisualImageDataInformationType,CCC,,0,0,0,,,,A data type that allows the entry of information concerning type-10 images of the mouth.,,,,,,
+biom,DeviceCertificationCodeSimpleType,biom:DeviceCertificationCodeSimpleType,S,atomic,0,0,0,,,,A data type of code that indicates the conformance testing a product has undergone,xs,token,xs:token,,,
+biom,DeviceCertificationCodeType,biom:DeviceCertificationCodeType,CSC,,0,0,0,,,,A data type for a code that indicates the conformance testing a product has undergone,biom,DeviceCertificationCodeSimpleType,biom:DeviceCertificationCodeSimpleType,,,
+biom,DeviceType,biom:DeviceType,CCC,,0,0,0,,,,A data type definition contains a set of information regarding the captured device information,,,,,,
+biom,DiarizationIndicatorCodeSimpleType,biom:DiarizationIndicatorCodeSimpleType,S,atomic,0,0,0,,,,A data type for a Diarization Indicator Code.,xs,integer,xs:integer,,,
+biom,DiarizationIndicatorCodeType,biom:DiarizationIndicatorCodeType,CSC,,0,0,0,,,,A data type for a Diarization Indicator Code.,biom,DiarizationIndicatorCodeSimpleType,biom:DiarizationIndicatorCodeSimpleType,,,
+nc,ActivityConveyanceAssociationType,nc:ActivityConveyanceAssociationType,CCC,,0,0,0,,,,A data type for an association between an activity and a conveyance.,,,,nc,AssociationType,nc:AssociationType
+nc,ActivityDocumentAssociationType,nc:ActivityDocumentAssociationType,CCC,,0,0,0,,,,A data type for an association between an activity and a document.,,,,nc,AssociationType,nc:AssociationType
+nc,ActivityFacilityAssociationType,nc:ActivityFacilityAssociationType,CCC,,0,0,0,,,,A data type for an association between an activity and a facility.,,,,nc,AssociationType,nc:AssociationType
+nc,ActivityItemAssociationType,nc:ActivityItemAssociationType,CCC,,0,0,0,,,,A data type for an association between an activity and an item.,,,,nc,AssociationType,nc:AssociationType
+nc,ActivityOrganizationAssociationType,nc:ActivityOrganizationAssociationType,CCC,,0,0,0,,,,A data type for an association between an activity and an organization.,,,,nc,AssociationType,nc:AssociationType
+nc,ActivityPersonAssociationType,nc:ActivityPersonAssociationType,CCC,,0,0,0,,,,A data type for an association between an activity and a person.,,,,nc,AssociationType,nc:AssociationType
+nc,ActivityScheduleAssociationType,nc:ActivityScheduleAssociationType,CCC,,0,0,0,,,,A data type for an association between an activity and its schedule.,,,,nc,AssociationType,nc:AssociationType
+nc,ActivitySiteAssociationType,nc:ActivitySiteAssociationType,CCC,,0,0,0,,,,A data type for an association between an activity and a site.,,,,nc,AssociationType,nc:AssociationType
+nc,ActivityType,nc:ActivityType,CCC,,0,0,0,process,,An activity can be made up of multiple events.,"A data type for a single or set of related actions, events, or process steps.",,,,,,
+nc,AddressCategoryCodeSimpleType,nc:AddressCategoryCodeSimpleType,S,atomic,0,0,0,,,,A data type for a kind of address.,xs,token,xs:token,,,
+nc,AddressCategoryCodeType,nc:AddressCategoryCodeType,CSC,atomic,0,0,0,,,,A data type for a kind of address.,nc,AddressCategoryCodeSimpleType,nc:AddressCategoryCodeSimpleType,,,
+nc,AddressGridType,nc:AddressGridType,CCC,,0,0,0,,,"May be used to denote the area of jurisdiction of an agency, such as a law enforcement or emergency response agency.",A data type for a location identified by a unit of a grid system overlaid on an area.,,,,,,
+nc,AddressType,nc:AddressType,CCC,,0,0,0,,,,A data type for a geophysical location described by postal information.,,,,,,
+nc,AircraftType,nc:AircraftType,CCC,,0,0,0,"plane, airplane, helicopter, jet, drone, glider, unmanned aircraft, UAV",,,A data type for a mode of transportation capable of flying in the air.,,,,nc,ConveyanceType,nc:ConveyanceType
+nc,AirportType,nc:AirportType,CCC,,0,0,0,,,,A data type for an airport facility.,,,,nc,FacilityType,nc:FacilityType
+nc,AmountType,nc:AmountType,CCC,,0,0,0,"dollars, cash, currency",,,A data type for an amount of money.,,,,,,
+nc,AngleMeasureType,nc:AngleMeasureType,CCC,,0,0,0,,,,A data type for a measure of an angular value.,,,,nc,MeasureType,nc:MeasureType
+nc,AngularMeasureType,nc:AngularMeasureType,CCC,,0,0,0,,,,A data type for the measurement of an angle.,,,,,,
+nc,AngularMinuteSimpleType,nc:AngularMinuteSimpleType,S,atomic,0,0,0,,,,"A data type for a minute of a degree, with a restricted range of 0 (inclusive) to 60 (exclusive).",xs,decimal,xs:decimal,,,
+nc,AngularMinuteType,nc:AngularMinuteType,CSC,,0,0,0,,,,"A data type for a minute of a degree, with a restricted range of 0 (inclusive) to 60 (exclusive).",nc,AngularMinuteSimpleType,nc:AngularMinuteSimpleType,,,
+nc,AngularRateMeasureType,nc:AngularRateMeasureType,CCC,,0,0,0,,,,A data type for a measure of the angular rate of change.,,,,nc,MeasureType,nc:MeasureType
+nc,AngularSecondSimpleType,nc:AngularSecondSimpleType,S,atomic,0,0,0,,,,"A data type for a second of a minute, with a restricted range of 0 (inclusive) to 60 (exclusive).",xs,decimal,xs:decimal,,,
+nc,AngularSecondType,nc:AngularSecondType,CSC,,0,0,0,,,,"A data type for a second of a minute, with a restricted range of 0 (inclusive) to 60 (exclusive).",nc,AngularSecondSimpleType,nc:AngularSecondSimpleType,,,
+nc,AnomalyType,nc:AnomalyType,CCC,,0,0,0,,,,A data type for an out-of-the-ordinary occurrence.,,,,,,
+nc,AreaType,nc:AreaType,CCC,,0,0,0,,,,A data type for a location identified by geographic boundaries.,,,,,,
+nc,ArrivalType,nc:ArrivalType,CCC,,0,0,0,,,,A data type for a coming to one location from another.,,,,,,
+nc,AssessmentType,nc:AssessmentType,CCC,,0,0,0,,,"Within the justice domain, examples assessments include: gambling, psychological, chemical dependency, psycho-sexual assessments.  These evaluations are frequently done in the context of pre-plea and pre-sentencing investigations (PSI).","A data type for an evaluation, appraisal, or assessment of something or someone.",,,,nc,ActivityType,nc:ActivityType
+nc,AssociationType,nc:AssociationType,CCC,,0,0,0,,,,"A data type for an association, connection, relationship, or involvement somehow linking people, things, and/or activities together.",,,,,,
+nc,BearingType,nc:BearingType,CCC,,0,0,0,,,,A data type for a direction in a polar coordinate system.,,,,,,
+nc,BinaryHashFunctionCodeSimpleType,nc:BinaryHashFunctionCodeSimpleType,S,atomic,0,0,0,,,,A data type for a hash function used to generate a hash value representing an object encoded in a binary format.,xs,token,xs:token,,,
+nc,BinaryHashFunctionCodeType,nc:BinaryHashFunctionCodeType,CSC,atomic,0,0,0,,,,A data type for a hash function used to generate a hash value representing an object encoded in a binary format.,nc,BinaryHashFunctionCodeSimpleType,nc:BinaryHashFunctionCodeSimpleType,,,
+nc,BinaryHashType,nc:BinaryHashType,CCC,,0,0,0,,,,A data type for a hash value representing an object encoded in a binary format.,,,,,,
+nc,BinaryType,nc:BinaryType,CCC,,0,0,0,"BLOB, blob, multimedia, object, binary large object",,"Binaries are used for images, audio, and other multimedia objects.  Use ImageType, a specialization of BinaryType, for images.",A data type for a digital representation of an object encoded in a binary format.,,,,,,
+nc,BooleanListSimpleType,nc:BooleanListSimpleType,S,list,0,0,0,,,,A data type for a  white space-delimited list of boolean.,xs,boolean,xs:boolean,,,
+nc,BooleanListType,nc:BooleanListType,CSC,,0,0,0,,,,A data type for a  white space-delimited list of boolean.,nc,BooleanListSimpleType,nc:BooleanListSimpleType,,,
+nc,CapabilityType,nc:CapabilityType,CCC,,0,0,0,,,,A data type for an ability to complete a task or execute a course of action under specified condition and level of performance.,,,,,,
+nc,CaseDispositionDecisionType,nc:CaseDispositionDecisionType,CCC,,0,0,0,,,,A data type for the disposition of a case occurring as a result of some decision.,,,,,,
+nc,CaseDispositionType,nc:CaseDispositionType,CCC,,0,0,0,,,,A data type for an outcome or processing of a case.,,,,nc,DispositionType,nc:DispositionType
+nc,CaseType,nc:CaseType,CCC,,0,0,0,,,,A data type for an aggregation of information about a set of related activities and events.,,,,nc,ActivityType,nc:ActivityType
+nc,CircularRegionType,nc:CircularRegionType,CCC,,0,0,0,,,,A data type for a circular area identified by a center coordinate and a radius.,,,,,,
+nc,CodeType,nc:CodeType,CSC,,0,0,0,,,,A data type for a code with codes sourced from an external code list.,xs,token,xs:token,,,
+nc,CommentType,nc:CommentType,CCC,,0,0,0,,,,"A data type for a comment, note, or remark providing additional information.",,,,,,
+nc,ConditionType,nc:ConditionType,CCC,,0,0,0,,,Failure to meet or comply with a condition may result in negative consequences.,A data type for a requirement or stipulation.,,,,nc,ActivityType,nc:ActivityType
+nc,ConsumptionRateMeasureType,nc:ConsumptionRateMeasureType,CCC,,0,0,0,,,,A data type for a measure of a rate of consumption.,,,,nc,MeasureType,nc:MeasureType
+nc,ContactInformationAvailabilityCodeSimpleType,nc:ContactInformationAvailabilityCodeSimpleType,S,atomic,0,0,0,,,,A data type for a period of time or a situation in which an entity is available to be contacted with the given contact information.,xs,token,xs:token,,,
+nc,ContactInformationAvailabilityCodeType,nc:ContactInformationAvailabilityCodeType,CSC,,0,0,0,,,,A data type for a period of time or a situation in which an entity is available to be contacted with the given contact information.,nc,ContactInformationAvailabilityCodeSimpleType,nc:ContactInformationAvailabilityCodeSimpleType,,,
+nc,ContactInformationType,nc:ContactInformationType,CCC,,0,0,0,,,,A data type for how to contact a person or an organization.,,,,,,
+nc,ContactRadioType,nc:ContactRadioType,CCC,,0,0,0,,,,A data type for a method of contacting a person or organization by messages over a radio.,,,,,,
+nc,ConveyanceType,nc:ConveyanceType,CCC,,0,0,0,"transportation, mode of transport",,,A data type for a means of transport from place to place.,,,,nc,ItemType,nc:ItemType
+nc,CountryType,nc:CountryType,CCC,,0,0,0,,,,"A data type for a country, territory, dependency, or other such geopolitical subdivision of a location.",,,,,,
+nc,CrisisType,nc:CrisisType,CCC,,0,0,0,,,,A data type for a crisis.,,,,,,
+nc,CrossStreetType,nc:CrossStreetType,CCC,,0,0,0,,,,A data type for a location identified by two or more streets which intersect.,,,,,,
+nc,DateRangeType,nc:DateRangeType,CCC,,0,0,0,,,,A data type for a range of dates.,,,,,,
+nc,DateType,nc:DateType,CCC,,0,0,0,,,,A data type for a calendar date.,,,,,,
+nc,DayOfWeekCodeSimpleType,nc:DayOfWeekCodeSimpleType,S,atomic,0,0,0,,,,A data type for days of the week.,xs,token,xs:token,,,
+nc,DayOfWeekCodeType,nc:DayOfWeekCodeType,CSC,,0,0,0,,,,A data type for days of the week.,nc,DayOfWeekCodeSimpleType,nc:DayOfWeekCodeSimpleType,,,
+nc,DecalType,nc:DecalType,CCC,,0,0,0,,,Can be used to describe a decal attached to a permanent registration plate on a conveyance.,A data type for a sticker.,,,,,,
+nc,DecimalListSimpleType,nc:DecimalListSimpleType,S,list,0,0,0,,,,A data type for a white space-delimited list of decimal.,xs,decimal,xs:decimal,,,
+nc,DecimalListType,nc:DecimalListType,CSC,,0,0,0,,,,A data type for a white space-delimited list of decimal.,nc,DecimalListSimpleType,nc:DecimalListSimpleType,,,
+nc,DecimalRangeType,nc:DecimalRangeType,CCC,,0,0,0,,,,A data type for a range of decimal values.,,,,,,
+nc,Degree180PlusMinusSimpleType,nc:Degree180PlusMinusSimpleType,S,atomic,0,0,0,,,,A data type for an angle measured in degrees between -180 and 180.,xs,decimal,xs:decimal,,,
+nc,Degree180PlusMinusType,nc:Degree180PlusMinusType,CSC,,0,0,0,,,,A data type for an angle measured in degrees between -180 and 180.,nc,Degree180PlusMinusSimpleType,nc:Degree180PlusMinusSimpleType,,,
+nc,Degree360SimpleType,nc:Degree360SimpleType,S,atomic,0,0,0,,,,A data type for a value between 0 (inclusive) and 360 (exclusive).,xs,decimal,xs:decimal,,,
+nc,Degree360Type,nc:Degree360Type,CSC,atomic,0,0,0,,,,A data type for a value between 0 (inclusive) and 360 (exclusive).,nc,Degree360SimpleType,nc:Degree360SimpleType,,,
+nc,Degree90PlusMinusSimpleType,nc:Degree90PlusMinusSimpleType,S,atomic,0,0,0,,,,A data type for an angle measured in degrees between -90 and 90.,xs,decimal,xs:decimal,,,
+nc,Degree90PlusMinusType,nc:Degree90PlusMinusType,CSC,,0,0,0,,,,A data type for an angle measured in degrees between -90 and 90.,nc,Degree90PlusMinusSimpleType,nc:Degree90PlusMinusSimpleType,,,
+nc,Degree90SimpleType,nc:Degree90SimpleType,S,atomic,0,0,0,,,,A data type for a value between 0 (inclusive) and 90 (exclusive).,xs,decimal,xs:decimal,,,
+nc,Degree90Type,nc:Degree90Type,CSC,atomic,0,0,0,,,,A data type for a value between 0 (inclusive) and 90 (exclusive).,nc,Degree90SimpleType,nc:Degree90SimpleType,,,
+nc,DepartureType,nc:DepartureType,CCC,,0,0,0,,,,A data type for a leaving from one location to another.,,,,,,
+nc,DeviceInformationAssociationType,nc:DeviceInformationAssociationType,CCC,,0,0,0,,,,"A data type for an association between a device and a message, website, binary, or other kind of information.",,,,nc,AssociationType,nc:AssociationType
+nc,DeviceType,nc:DeviceType,CCC,,0,0,0,,,,A data type for a device.,,,,nc,ItemType,nc:ItemType
+nc,DirectDialTelephoneNumberType,nc:DirectDialTelephoneNumberType,CCC,,0,0,0,,,,"A data type for a telephone number consisting of a shortened sequence of numbers that can be used within a local telephone system, such as a particular network or a corporate phone system.",,,,,,
+nc,DirectionCodeSimpleType,nc:DirectionCodeSimpleType,S,atomic,0,0,0,,,,A data type for compass directions.,xs,string,xs:string,xs,token,xs:token
+nc,DirectionCodeType,nc:DirectionCodeType,CSC,,0,0,0,,,,A data type for compass directions.,nc,DirectionCodeSimpleType,nc:DirectionCodeSimpleType,,,
+nc,DisciplinaryActionType,nc:DisciplinaryActionType,CCC,,0,0,0,,,,"A data type for an activity assigned to a person for the purpose of self-improvement, punishment, or restitution.",,,,nc,ActivityType,nc:ActivityType
+nc,DispositionType,nc:DispositionType,CCC,,0,0,0,,,,"A data type for a result or outcome that is the product of handling, processing, or finalizing something.",,,,,,
+nc,DocumentAssociationType,nc:DocumentAssociationType,CCC,,0,0,0,,,,A data type for a relationship between documents.,,,,nc,AssociationType,nc:AssociationType
+nc,DocumentStatusDetailsType,nc:DocumentStatusDetailsType,CCC,,0,0,0,,,,A data type for the classification of status of a document.,,,,,,
+nc,DocumentType,nc:DocumentType,CCC,,0,0,0,"resource, file, source, article, letter, form",,,A data type for a paper or electronic document.,,,,,,
+nc,DoubleListSimpleType,nc:DoubleListSimpleType,S,list,0,0,0,,,,A data type for a white space-delimited list of double.,xs,double,xs:double,,,
+nc,DoubleListType,nc:DoubleListType,CSC,,0,0,0,,,,A data type for a white space-delimited list of double.,nc,DoubleListSimpleType,nc:DoubleListSimpleType,,,
+nc,DoubleRangeType,nc:DoubleRangeType,CCC,,0,0,0,,,,A data type for a range of double values.,,,,,,
+nc,DrugType,nc:DrugType,CCC,,0,0,0,"crack, cocaine, marijuana, heroin, methamphetamine, prescription medication",,,A data type for a legal or illegal substance that can be used as a medicine or a narcotic.,,,,nc,SubstanceType,nc:SubstanceType
+nc,ElectronicAddressType,nc:ElectronicAddressType,CCC,,0,0,0,,,,"A data type for an address, ID, or Uniform Resource Locator (URL) that uniquely identifies a specific site on the Internet or another network.",,,,,,
+nc,EncounterClassificationType,nc:EncounterClassificationType,CCC,,0,0,0,,,,"A data type for a kind of encounter between a person or item of interest and a governmental element, such as an organization, official or surveillance system.",,,,,,
+nc,EntityType,nc:EntityType,CCC,,0,0,0,,,,"A data type for a person, organization, or thing capable of bearing legal rights and responsibilities.",,,,,,
+nc,EquipmentType,nc:EquipmentType,CCC,,0,0,0,,,,A data type for a tangible property (other than land or buildings) of more or less durable nature which is useful in carrying on the operations of a business.,,,,,,
+nc,FacilityAssociationType,nc:FacilityAssociationType,CCC,,0,0,0,,,,A data type for an association between facilities.,,,,nc,AssociationType,nc:AssociationType
+nc,FacilityDocumentAssociationType,nc:FacilityDocumentAssociationType,CCC,,0,0,0,,,,A data type for an association between a facility and a document.,,,,nc,AssociationType,nc:AssociationType
+nc,FacilityImageAssociationType,nc:FacilityImageAssociationType,CCC,,0,0,0,,,,A data type for an association between a facility and an image.,,,,nc,AssociationType,nc:AssociationType
+nc,FacilityPersonAssociationType,nc:FacilityPersonAssociationType,CCC,,0,0,0,,,,A data type for an association between a facility and a person.,,,,nc,AssociationType,nc:AssociationType
+nc,FacilitySiteAssociationType,nc:FacilitySiteAssociationType,CCC,,0,0,0,,,,A data type for an association between a facility and a site.,,,,nc,AssociationType,nc:AssociationType
+nc,FacilitySubFacilityAssociationType,nc:FacilitySubFacilityAssociationType,CCC,,0,0,0,,,,A data type for an association between a facility and its sub-facility.,,,,nc,AssociationType,nc:AssociationType
+nc,FacilityType,nc:FacilityType,CCC,,0,0,0,"structure, building, bridge, tower, school, campus, airport, port, lab, room",,"A facility could be composed of one or more buildings, one or more units within a building, a constructed entity, infrastructure.","A data type for a building, place, or structure that provides a particular service.",,,,,,
+nc,FinancialAccountHolderCodeSimpleType,nc:FinancialAccountHolderCodeSimpleType,S,atomic,0,0,0,,,,A data type for a kind of financial account holder.,xs,token,xs:token,,,
+nc,FinancialAccountHolderCodeType,nc:FinancialAccountHolderCodeType,CSC,atomic,0,0,0,,,,A data type for a kind of financial account holder.,nc,FinancialAccountHolderCodeSimpleType,nc:FinancialAccountHolderCodeSimpleType,,,
+nc,FinancialAccountHolderType,nc:FinancialAccountHolderType,CCC,,0,0,0,,,,A data type for an entity that holds a financial account.,,,,nc,EntityType,nc:EntityType
+nc,FinancialAccountNumberCategoryCodeSimpleType,nc:FinancialAccountNumberCategoryCodeSimpleType,S,atomic,0,0,0,,,,A data type for a kind of financial account number.,xs,token,xs:token,,,
+nc,FinancialAccountNumberCategoryCodeType,nc:FinancialAccountNumberCategoryCodeType,CSC,atomic,0,0,0,,,,A data type for a kind of financial account number.,nc,FinancialAccountNumberCategoryCodeSimpleType,nc:FinancialAccountNumberCategoryCodeSimpleType,,,
+nc,FinancialAccountType,nc:FinancialAccountType,CCC,,0,0,0,,,,A data type for a financial account maintained by a financial institution.,,,,,,
+nc,FiscalYearDateType,nc:FiscalYearDateType,CSC,,0,0,0,,,,A data type for a year of a twelve month period that does not necessarily correspond to the calendar year.,,,,niem-xs,gYear,niem-xs:gYear
+nc,FullTelephoneNumberType,nc:FullTelephoneNumberType,CCC,,0,0,0,,,,A data type for a full telephone number.,,,,,,
+nc,GenericEntityType,nc:GenericEntityType,CCC,,0,0,0,,,,A data type for a basic set of information about a person or an organization.,,,,,,
+nc,HighwayType,nc:HighwayType,CCC,,0,0,0,,,,A data type for a major public road.,,,,,,
+nc,IdentificationType,nc:IdentificationType,CCC,,0,0,0,,,,A data type for a representation of an identity.,,,,,,
+nc,IdentityType,nc:IdentityType,CCC,,0,0,0,,,,A data type for a set of known aspects or characteristics by which a person is defined or recognized.,,,,,,
+nc,ImagePoseCodeSimpleType,nc:ImagePoseCodeSimpleType,S,atomic,0,0,0,,,,A data type for angles of an entitys pose in a photograph.,xs,token,xs:token,,,
+nc,ImagePoseCodeType,nc:ImagePoseCodeType,CSC,,0,0,0,,,,A data type for angles of an entitys pose in a photograph.,nc,ImagePoseCodeSimpleType,nc:ImagePoseCodeSimpleType,,,
+nc,ImageType,nc:ImageType,CCC,,0,0,0,,,,A data type for a picture or visual representation of something.,,,,nc,BinaryType,nc:BinaryType
+nc,IncidentType,nc:IncidentType,CCC,,0,0,0,,,,A data type for an occurrence or an event that may require a response.,,,,nc,ActivityType,nc:ActivityType
+nc,InjuryType,nc:InjuryType,CCC,,0,0,0,,,,A data type for a form of harm or damage sustained by a person.,,,,,,
+nc,InstantMessengerType,nc:InstantMessengerType,CCC,,0,0,0,,,,A data type for a user account for an instant messaging program by which a person or organization may be contacted.,,,,,,
+nc,InsuranceType,nc:InsuranceType,CCC,,0,0,0,policy,,,A data type for coverage by a contract whereby one party agrees to indemnify or guarantee another against loss by a specified contingent event or peril.,,,,,,
+nc,IntangibleItemType,nc:IntangibleItemType,CCC,,0,0,0,,,,A data type for an intellectual property item.,,,,nc,ItemType,nc:ItemType
+nc,IntegerListSimpleType,nc:IntegerListSimpleType,S,list,0,0,0,,,,A data type for a list of integers.,xs,integer,xs:integer,,,
+nc,IntegerListType,nc:IntegerListType,CSC,,0,0,0,,,,A data type for a list of integers.,nc,IntegerListSimpleType,nc:IntegerListSimpleType,,,
+nc,IntegerRangeType,nc:IntegerRangeType,CCC,,0,0,0,,,,A data type for a range of integer values.,,,,,,
+nc,IntellectualPropertyType,nc:IntellectualPropertyType,CCC,,0,0,0,"patents, trademarks, copyright material",,,A data type for property that results from original thought or creativity.,,,,nc,IntangibleItemType,nc:IntangibleItemType
+nc,InternationalTelephoneNumberType,nc:InternationalTelephoneNumberType,CCC,,0,0,0,,,,A data type for an international telephone number.,,,,,,
+nc,ItemContainerAssociationType,nc:ItemContainerAssociationType,CCC,,0,0,0,,,,A data type for an association between an item and something in which it is held.,,,,nc,AssociationType,nc:AssociationType
+nc,ItemDispositionType,nc:ItemDispositionType,CCC,,0,0,0,,,,A data type for a result or outcome that happens to a property item after it has been handled or processed.,,,,nc,DispositionType,nc:DispositionType
+nc,ItemEntityAssociationType,nc:ItemEntityAssociationType,CCC,,0,0,0,,,,A data type for an association between an item and an entity.,,,,nc,AssociationType,nc:AssociationType
+nc,ItemInsuranceAssociationType,nc:ItemInsuranceAssociationType,CCC,,0,0,0,,,,A data type for an association between an item and its insurance.,,,,nc,AssociationType,nc:AssociationType
+nc,ItemLocationAssociationType,nc:ItemLocationAssociationType,CCC,,0,0,0,,,,A data type for an association between a property and a location.,,,,nc,AssociationType,nc:AssociationType
+nc,ItemTransactionType,nc:ItemTransactionType,CCC,,0,0,0,,,,A data type for a transfer of ownership of an item.,,,,nc,ActivityType,nc:ActivityType
+nc,ItemType,nc:ItemType,CCC,,0,0,0,,,,A data type for an article or thing.,,,,,,
+nc,ItemValueType,nc:ItemValueType,CCC,,0,0,0,,,,A data type for an evaluation of the monetary worth of an item.,,,,,,
+nc,JurisdictionType,nc:JurisdictionType,CCC,,0,0,0,,,,"A data type for a geopolitical area in which an organization, person, or object has a specific range of authority.",,,,,,
+nc,LatitudeCoordinateType,nc:LatitudeCoordinateType,CCC,,0,0,0,,,,A data type for a measurement of the angular distance between a point on the Earth and the Equator.,,,,,,
+nc,LatitudeDegreeSimpleType,nc:LatitudeDegreeSimpleType,S,atomic,0,0,0,,,,A data type for a degree of latitude.,xs,decimal,xs:decimal,,,
+nc,LatitudeDegreeType,nc:LatitudeDegreeType,CSC,,0,0,0,,,,A data type for a degree of latitude.,nc,LatitudeDegreeSimpleType,nc:LatitudeDegreeSimpleType,,,
+nc,LengthMeasureType,nc:LengthMeasureType,CCC,,0,0,0,,,,A data type for a measure of a distance or extent.,,,,nc,MeasureType,nc:MeasureType
+nc,LocaleType,nc:LocaleType,CCC,,0,0,0,,,"This could be of any size (jurisdiction, state, country, etc.) for administrative, official, or cultural purposes.",A data type for a geopolitical area.,,,,,,
+nc,Location2DGeospatialCoordinateType,nc:Location2DGeospatialCoordinateType,CCC,,0,0,0,,,,A data type for a location identified by latitude and longitude.,,,,,,
+nc,Location3DGeospatialCoordinateType,nc:Location3DGeospatialCoordinateType,CCC,,0,0,0,,,,"A data type for a location identified by latitude, longitude, and height.",,,,nc,Location2DGeospatialCoordinateType,nc:Location2DGeospatialCoordinateType
+nc,LocationContactInformationAssociationType,nc:LocationContactInformationAssociationType,CCC,,0,0,0,,,,A data type for an association between a location and contact information.,,,,nc,AssociationType,nc:AssociationType
+nc,LocationHeightMeasureType,nc:LocationHeightMeasureType,CCC,,0,0,0,,,,A data type for a measurement of the height of a location relative to a reference point.,,,,nc,MeasureType,nc:MeasureType
+nc,LocationType,nc:LocationType,CCC,,0,0,0,,,,A data type for geospatial location.,,,,,,
+nc,LongitudeCoordinateType,nc:LongitudeCoordinateType,CCC,,0,0,0,,,,A data type for a measurement of the angular distance between a point on the Earth and the Prime Meridian.,,,,,,
+nc,LongitudeDegreeSimpleType,nc:LongitudeDegreeSimpleType,S,atomic,0,0,0,,,,A data type for a degree of longitude.,xs,decimal,xs:decimal,,,
+nc,LongitudeDegreeType,nc:LongitudeDegreeType,CSC,,0,0,0,,,,A data type for a degree of longitude.,nc,LongitudeDegreeSimpleType,nc:LongitudeDegreeSimpleType,,,
+nc,ManifestType,nc:ManifestType,CCC,,0,0,0,,,,A data type for the information about the persons and/or cargo transported on a conveyance trip.,,,,nc,DocumentType,nc:DocumentType
+nc,MapLocationType,nc:MapLocationType,CCC,,0,0,0,,,Map may be paper or digital.,A data type for a location identified by map or grid coordinates.,,,,,,
+nc,MeasureType,nc:MeasureType,CCC,,0,0,0,,,,A data type for a measurement.,,,,,,
+nc,MedicalConditionType,nc:MedicalConditionType,CCC,,0,0,0,"disease, illness, injury, disability",,,"A data type for a state of health, on-going or present.",,,,,,
+nc,MessageCategoryFATCACodeSimpleType,nc:MessageCategoryFATCACodeSimpleType,S,atomic,0,0,0,,,,A data type for kind of Foreign Account Tax Compliance Act (FATCA) message.,xs,token,xs:token,,,
+nc,MessageCategoryFATCACodeType,nc:MessageCategoryFATCACodeType,CSC,atomic,0,0,0,,,,A data type for kind of Foreign Account Tax Compliance Act (FATCA) message.,nc,MessageCategoryFATCACodeSimpleType,nc:MessageCategoryFATCACodeSimpleType,,,
+nc,MessageType,nc:MessageType,CCC,,0,0,0,,,,A data type for an electronic form of communication that can be exchanged asynchronously.,,,,,,
+nc,MilitaryDischargeCategoryCodeSimpleType,nc:MilitaryDischargeCategoryCodeSimpleType,S,atomic,0,0,0,,,,A data type for kinds of discharges a person may receive from military service.,xs,token,xs:token,,,
+nc,MilitaryDischargeCategoryCodeType,nc:MilitaryDischargeCategoryCodeType,CSC,,0,0,0,,,,A data type for kinds of discharges a person may receive from military service.,nc,MilitaryDischargeCategoryCodeSimpleType,nc:MilitaryDischargeCategoryCodeSimpleType,,,
+nc,MilitarySummaryType,nc:MilitarySummaryType,CCC,,0,0,0,,,,A data type for a service of a person in a military.,,,,,,
+nc,MissionType,nc:MissionType,CCC,,0,0,0,,,,"A data type for a task, together with the purpose, that clearly indicates the action to be taken and the reason therefore.",,,,,,
+nc,NANPTelephoneNumberType,nc:NANPTelephoneNumberType,CCC,,0,0,0,,,,A data type for a North American Numbering Plan telephone number.,,,,,,
+nc,NonNegativeDecimalSimpleType,nc:NonNegativeDecimalSimpleType,S,atomic,0,0,0,,,,A data type for a decimal value with a minimum value of 0.,xs,decimal,xs:decimal,,,
+nc,NonNegativeDecimalType,nc:NonNegativeDecimalType,CSC,,0,0,0,,,,A data type for a decimal value with a minimum value of 0.,nc,NonNegativeDecimalSimpleType,nc:NonNegativeDecimalSimpleType,,,
+nc,NonNegativeIntegerListSimpleType,nc:NonNegativeIntegerListSimpleType,S,list,0,0,0,,,,A data type for a white space-delimited list of nonnegative integers.,xs,nonNegativeInteger,xs:nonNegativeInteger,,,
+nc,NonNegativeIntegerListType,nc:NonNegativeIntegerListType,CSC,,0,0,0,,,,A data type for a white space-delimited list of nonnegative integers.,nc,NonNegativeIntegerListSimpleType,nc:NonNegativeIntegerListSimpleType,,,
+nc,NumericType,nc:NumericType,CSC,,0,0,0,,,,A data type for a number value.,,,,niem-xs,decimal,niem-xs:decimal
+nc,ObligationExemptionType,nc:ObligationExemptionType,CCC,,0,0,0,,,,A data type for a waival or dismissal of an obligation.,,,,,,
+nc,ObligationRecurrenceType,nc:ObligationRecurrenceType,CCC,,0,0,0,,,,A data type for a periodic basis on which an obligation must be met.,,,,,,
+nc,ObligationType,nc:ObligationType,CCC,,0,0,0,,,"An obligation could be monetary (e.g., required payments), time-based (e.g., community service), or another form of requirement on a person.  Look at sub-classes of ObligationType for more specific representations of an obligation.",A data type for something that is owed to an entity.,,,,,,
+nc,OffenseLevelCodeSimpleType,nc:OffenseLevelCodeSimpleType,S,atomic,0,0,0,,,,A data type for levels of an incident.,xs,token,xs:token,,,
+nc,OffenseLevelCodeType,nc:OffenseLevelCodeType,CSC,,0,0,0,,,,A data type for levels of an incident.,nc,OffenseLevelCodeSimpleType,nc:OffenseLevelCodeSimpleType,,,
+nc,OrganizationAssociationType,nc:OrganizationAssociationType,CCC,,0,0,0,,,,A data type for an association between organizations.,,,,nc,AssociationType,nc:AssociationType
+nc,OrganizationFacilityAssociationType,nc:OrganizationFacilityAssociationType,CCC,,0,0,0,,,,A data type for an association between an organization and a facility.,,,,nc,AssociationType,nc:AssociationType
+nc,OrganizationLocationAssociationType,nc:OrganizationLocationAssociationType,CCC,,0,0,0,,,,A data type for an association between an organization and a location.,,,,nc,AssociationType,nc:AssociationType
+nc,OrganizationType,nc:OrganizationType,CCC,,0,0,0,"business, government, charity, department, agency, division, entity",,,A data type for a body of people organized for a particular purpose.,,,,,,
+nc,OrganizationUnitAssociationType,nc:OrganizationUnitAssociationType,CCC,,0,0,0,,,,A data type for an association between an organization and another organization or unit.,,,,nc,AssociationType,nc:AssociationType
+nc,OrientationType,nc:OrientationType,CCC,,0,0,0,,,,"A data type for the angles of rotation about the principle axes (normal, lateral, longitudinal) of a thing, relative to true north and the horizontal plane, measured in degrees.",,,,,,
+nc,PassportCategoryCodeSimpleType,nc:PassportCategoryCodeSimpleType,S,atomic,0,0,0,,,,A data type for a kind of passport.,xs,token,xs:token,,,
+nc,PassportCategoryCodeType,nc:PassportCategoryCodeType,CSC,,0,0,0,,,,A data type for a kind of passport.,nc,PassportCategoryCodeSimpleType,nc:PassportCategoryCodeSimpleType,,,
+nc,PassportType,nc:PassportType,CCC,,0,0,0,,,,A data type for a government-issued document that authenticates the identity and citizenship of a person.,,,,nc,DocumentType,nc:DocumentType
+nc,PaymentMethodCodeSimpleType,nc:PaymentMethodCodeSimpleType,S,atomic,0,0,0,,,,A data type for a specific method of payment.,xs,token,xs:token,,,
+nc,PaymentMethodCodeType,nc:PaymentMethodCodeType,CSC,atomic,0,0,0,,,,A data type for a specific method of payment.,nc,PaymentMethodCodeSimpleType,nc:PaymentMethodCodeSimpleType,,,
+nc,PaymentType,nc:PaymentType,CCC,,0,0,0,,,,A data type for a monetary payment.,,,,,,
+nc,PermitType,nc:PermitType,CCC,,0,0,0,,,,A data type for a permit or official document giving a person or entity authorization to do something.,,,,,,
+nc,PersonAssociationType,nc:PersonAssociationType,CCC,,0,0,0,,,,A data type for an association between people.,,,,nc,AssociationType,nc:AssociationType
+nc,PersonConveyanceAssociationType,nc:PersonConveyanceAssociationType,CCC,,0,0,0,,,,A data type for an association between a person and a conveyance.,,,,nc,AssociationType,nc:AssociationType
+nc,PersonDisunionType,nc:PersonDisunionType,CCC,,0,0,0,,,,A data type for a legal termination of a Person Union.,,,,nc,ActivityType,nc:ActivityType
+nc,PersonDocumentAssociationType,nc:PersonDocumentAssociationType,CCC,,0,0,0,,,,A data type for an association between a person and a document.,,,,nc,AssociationType,nc:AssociationType
+nc,PersonEmploymentAssociationType,nc:PersonEmploymentAssociationType,CCC,,0,0,0,,,,A data type for an association between a person and an employment.,,,,nc,AssociationType,nc:AssociationType
+nc,PersonEncounterType,nc:PersonEncounterType,CCC,,0,0,0,,,,"A data type for an encounter between a person of interest and a governmental element, such as an organization, official or surveillance system.",,,,nc,ActivityType,nc:ActivityType
+nc,PersonIdentityAssociationType,nc:PersonIdentityAssociationType,CCC,,0,0,0,,,,A data type for an association between a person and an identity.,,,,nc,AssociationType,nc:AssociationType
+nc,PersonLanguageType,nc:PersonLanguageType,CCC,,0,0,0,,,,A data type for a language capability of a person.,,,,,,
+nc,PersonLocationAssociationType,nc:PersonLocationAssociationType,CCC,,0,0,0,,,,A data type for an association between a person and a location.,,,,nc,AssociationType,nc:AssociationType
+nc,PersonNameCategoryCodeSimpleType,nc:PersonNameCategoryCodeSimpleType,S,atomic,0,0,0,,,,A data type for a kind of person name.,xs,token,xs:token,,,
+nc,PersonNameCategoryCodeType,nc:PersonNameCategoryCodeType,CSC,,0,0,0,,,,A data type for a kind of person name.,nc,PersonNameCategoryCodeSimpleType,nc:PersonNameCategoryCodeSimpleType,,,
+nc,PersonNameTextType,nc:PersonNameTextType,CSC,,0,0,0,,,,"A data type for a name by which a person is known, referred, or addressed.",,,,nc,ProperNameTextType,nc:ProperNameTextType
+nc,PersonNameType,nc:PersonNameType,CCC,,0,0,0,,,,A data type for a combination of names and/or titles by which a person is known.,,,,,,
+nc,PersonOrganizationAssociationType,nc:PersonOrganizationAssociationType,CCC,,0,0,0,,,,A data type for an association between a person and an organization.,,,,nc,AssociationType,nc:AssociationType
+nc,PersonResidenceAssociationType,nc:PersonResidenceAssociationType,CCC,,0,0,0,,,,A data type for an association between a person and a location where that person lives.,,,,nc,PersonLocationAssociationType,nc:PersonLocationAssociationType
+nc,PersonType,nc:PersonType,CCC,,0,0,0,"entity, person, people, human",,,A data type for a human being.,,,,,,
+nc,PersonUnionAssociationType,nc:PersonUnionAssociationType,CCC,,0,0,0,,,,A data type for an association between two persons who are in a state of union with each other.,,,,nc,PersonAssociationType,nc:PersonAssociationType
+nc,PersonUnionCategoryCodeSimpleType,nc:PersonUnionCategoryCodeSimpleType,S,atomic,0,0,0,,,,A data type describing the legally recognized union between two persons.,xs,token,xs:token,,,
+nc,PersonUnionCategoryCodeType,nc:PersonUnionCategoryCodeType,CSC,,0,0,0,,,,A data type describing the legally recognized union between two persons.,nc,PersonUnionCategoryCodeSimpleType,nc:PersonUnionCategoryCodeSimpleType,,,
+nc,PersonUnionSeparationType,nc:PersonUnionSeparationType,CCC,,0,0,0,,,,A data type for a separation of the parties in a Person Union.,,,,nc,ActivityType,nc:ActivityType
+nc,PersonUnionStatusCodeSimpleType,nc:PersonUnionStatusCodeSimpleType,S,atomic,0,0,0,,,,A data type describing the legal status of a person's union with another person.,xs,token,xs:token,,,
+nc,PersonUnionStatusCodeType,nc:PersonUnionStatusCodeType,CSC,,0,0,0,,,,A data type describing the legal status of a person's union with another person.,nc,PersonUnionStatusCodeSimpleType,nc:PersonUnionStatusCodeSimpleType,,,
+nc,PersonWorkerAssociationType,nc:PersonWorkerAssociationType,CCC,,0,0,0,,,,A data type for an association between a person and a person assigned to do work for or on behalf of that person.,,,,nc,AssociationType,nc:AssociationType
+nc,PhysicalFeatureType,nc:PhysicalFeatureType,CCC,,0,0,0,,,,A data type for a prominent or easily identifiable aspect of something or someone.,,,,,,
+nc,PleaCategoryCodeSimpleType,nc:PleaCategoryCodeSimpleType,S,atomic,0,0,0,,,,A data type for kinds of pleas.,xs,token,xs:token,,,
+nc,PleaCategoryCodeType,nc:PleaCategoryCodeType,CSC,,0,0,0,,,,A data type for kinds of pleas.,nc,PleaCategoryCodeSimpleType,nc:PleaCategoryCodeSimpleType,,,
+nc,PolygonRegionType,nc:PolygonRegionType,CCC,,0,0,0,,,,A data type for a polygon area identified by a set of coordinates.,,,,,,
+nc,PositiveIntegerListSimpleType,nc:PositiveIntegerListSimpleType,S,list,0,0,0,,,,A data type for a white space-delimited list of positive integers.,xs,positiveInteger,xs:positiveInteger,,,
+nc,PositiveIntegerListType,nc:PositiveIntegerListType,CSC,,0,0,0,,,,A data type for a white space-delimited list of positive integers.,nc,PositiveIntegerListSimpleType,nc:PositiveIntegerListSimpleType,,,
+nc,PreviousActivityAssociationType,nc:PreviousActivityAssociationType,CCC,,0,0,0,,,,A data type for an association between an activity and a previous activity.,,,,nc,RelatedActivityAssociationType,nc:RelatedActivityAssociationType
+nc,ProgramType,nc:ProgramType,CCC,,0,0,0,"projects, services, steps, actions, AA, drug rehab, parenting class, anger management",,"Within law enforcement, this can describe projects, programs, or services designed to reduce the likelihood of a person for committing crimes or to improve their understanding of laws and consequences.","A data type for a set of projects, activities, or services intended to meet a need.",,,,nc,ActivityType,nc:ActivityType
+nc,ProgressType,nc:ProgressType,CCC,,0,0,0,,,,A data type for a set of changes or advancements which bring someone closer to completing something.,,,,nc,ActivityType,nc:ActivityType
+nc,ProperNameTextType,nc:ProperNameTextType,CSC,,0,0,0,,,,"A data type for a word or phrase by which a person or thing is known, referred, or addressed.",,,,nc,TextType,nc:TextType
+nc,PublicServiceType,nc:PublicServiceType,CCC,,0,0,0,,,,"A data type for a set of deeds and acts performed by or on behalf of a public agency for the benefit of a citizen, a business or another public agency.",,,,,,
+nc,QuantityType,nc:QuantityType,CSC,,0,0,0,,,,A data type for a count or tally.,,,,nc,NumericType,nc:NumericType
+nc,QuarterIDSimpleType,nc:QuarterIDSimpleType,S,atomic,0,0,0,,,,A data type for an identifier of a three-month period in a calendar or fiscal year.,xs,integer,xs:integer,,,
+nc,QuarterIDType,nc:QuarterIDType,CSC,,0,0,0,,,,A data type for an identifier of a three-month period in a calendar or fiscal year.,nc,QuarterIDSimpleType,nc:QuarterIDSimpleType,,,
+nc,RealEstateType,nc:RealEstateType,CCC,,0,0,0,"cadastral, parcel",,,A data type for a piece of land and any permanent structures and natural resources on it.,,,,nc,ItemType,nc:ItemType
+nc,RecommendationType,nc:RecommendationType,CCC,,0,0,0,,,,A data type for a suggestion or proposal as to the best course of action.,,,,,,
+nc,ReferralType,nc:ReferralType,CCC,,0,0,0,,,,"A data type for a recommendation of a person to an activity, program, or product.",,,,nc,ActivityType,nc:ActivityType
+nc,RelatedActivityAssociationType,nc:RelatedActivityAssociationType,CCC,,0,0,0,,,,A data type for an association between related activities.,,,,nc,AssociationType,nc:AssociationType
+nc,RelativeLocationHeadingSimpleType,nc:RelativeLocationHeadingSimpleType,S,atomic,0,0,0,,,,A data type for a compass heading of a direction from a reference location.,xs,decimal,xs:decimal,,,
+nc,RelativeLocationHeadingType,nc:RelativeLocationHeadingType,CSC,,0,0,0,,,,A data type for a compass heading of a direction from a reference location.,nc,RelativeLocationHeadingSimpleType,nc:RelativeLocationHeadingSimpleType,,,
+nc,RelativeLocationType,nc:RelativeLocationType,CCC,,0,0,0,,,,A data type for a location identified by its proximity to another location.,,,,,,
+nc,ReleaseType,nc:ReleaseType,CCC,,0,0,0,,,,"A data type for a freeing or discharging of someone or something from an activity, supervision, or obligation.",,,,nc,ActivityType,nc:ActivityType
+nc,RequestType,nc:RequestType,CCC,,0,0,0,,,,A data type for a formal message requesting something that is submitted to an authority.,,,,,,
+nc,ScheduleDayType,nc:ScheduleDayType,CCC,,0,0,0,,,,A data type for a plan or agenda for the activities of a day.,,,,,,
+nc,ScheduleType,nc:ScheduleType,CCC,,0,0,0,,,,"A data type for a schedule providing the beginning and ending hours of operation by weekday, for a designated time period.",,,,,,
+nc,SecuritiesType,nc:SecuritiesType,CCC,,0,0,0,,,,A data type for a financial instrument showing ownership or credit.,,,,nc,ItemType,nc:ItemType
+nc,SeparationCategoryCodeSimpleType,nc:SeparationCategoryCodeSimpleType,S,atomic,0,0,0,,,,A data type for a code that identifies the type of separation between the parties in a Person Union.,xs,token,xs:token,,,
+nc,SeparationCategoryCodeType,nc:SeparationCategoryCodeType,CSC,,0,0,0,,,,A data type for a code that identifies the type of separation between the parties in a Person Union.,nc,SeparationCategoryCodeSimpleType,nc:SeparationCategoryCodeSimpleType,,,
+nc,SiteType,nc:SiteType,CCC,,0,0,0,,,,A data type for a specific place or position.,,,,,,
+nc,SoftwareNameType,nc:SoftwareNameType,CSC,,0,0,0,,,,A data type for a name of a computer application used to process data.,,,,nc,TextType,nc:TextType
+nc,SpeedMeasureType,nc:SpeedMeasureType,CCC,,0,0,0,,,,A data type for a measure of a speed or rate of motion.,,,,nc,MeasureType,nc:MeasureType
+nc,StateType,nc:StateType,CCC,,0,0,0,,,,"A data type for a state, commonwealth, province, or other such geopolitical subdivision of a country.",,,,,,
+nc,StatusType,nc:StatusType,CCC,,0,0,0,"condition, standing, circumstance",,,A data type for a state of something or someone.,,,,,,
+nc,StatuteCategoryCodeSimpleType,nc:StatuteCategoryCodeSimpleType,S,atomic,0,0,0,,,,A data type for kinds of statutes.,xs,token,xs:token,,,
+nc,StatuteCategoryCodeType,nc:StatuteCategoryCodeType,CSC,,0,0,0,,,,A data type for kinds of statutes.,nc,StatuteCategoryCodeSimpleType,nc:StatuteCategoryCodeSimpleType,,,
+nc,StreetType,nc:StreetType,CCC,,0,0,0,"road, roadway, thoroughfare, main way, concourse, boulevard, alley, lane, highway",,,"A data type for a road, thoroughfare, or highway.",,,,,,
+nc,StringListSimpleType,nc:StringListSimpleType,S,list,0,0,0,,,,A data type for a white space-delimited list of string.,xs,string,xs:string,,,
+nc,StringListType,nc:StringListType,CSC,,0,0,0,,,,A data type for a white space-delimited list of string.,nc,StringListSimpleType,nc:StringListSimpleType,,,
+nc,SubstanceMeasureType,nc:SubstanceMeasureType,CCC,,0,0,0,,,,A data type for a measure of the amount of something.,,,,nc,MeasureType,nc:MeasureType
+nc,SubstanceType,nc:SubstanceType,CCC,,0,0,0,,,,A data type for the matter or substance of which something consists.,,,,nc,ItemType,nc:ItemType
+nc,SupervisionLevelCodeSimpleType,nc:SupervisionLevelCodeSimpleType,S,atomic,0,0,0,,,,A data type for levels of supervision required for a person.,xs,token,xs:token,,,
+nc,SupervisionLevelCodeType,nc:SupervisionLevelCodeType,CSC,,0,0,0,,,,A data type for levels of supervision required for a person.,nc,SupervisionLevelCodeSimpleType,nc:SupervisionLevelCodeSimpleType,,,
+nc,SupervisionRestrictionCodeSimpleType,nc:SupervisionRestrictionCodeSimpleType,S,atomic,0,0,0,,,,A data type for restrictions placed upon a person under supervision.,xs,token,xs:token,,,
+nc,SupervisionRestrictionCodeType,nc:SupervisionRestrictionCodeType,CSC,,0,0,0,,,,A data type for restrictions placed upon a person under supervision.,nc,SupervisionRestrictionCodeSimpleType,nc:SupervisionRestrictionCodeSimpleType,,,
+nc,SupervisionType,nc:SupervisionType,CCC,,0,0,0,,,,"A data type for an act of officially overseeing, supervising, or keeping track in some capacity of a person.",,,,nc,ActivityType,nc:ActivityType
+nc,SystemAuditEventType,nc:SystemAuditEventType,CCC,,0,0,0,,,,A data type for a system event for audit reporting purposes.,,,,nc,ActivityType,nc:ActivityType
+nc,SystemIdentificationType,nc:SystemIdentificationType,CCC,,0,0,0,,,,A data type for a number or code assigned to a system to uniquely identify the system.,,,,nc,IdentificationType,nc:IdentificationType
+nc,TaskType,nc:TaskType,CCC,,0,0,0,,,,A data type for a clearly defined action or activity specifically assigned to an individual or organization that must be done as it is imposed by an appropriate authority.,,,,,,
+nc,TelecommunicationDeviceSIMCardAssociationType,nc:TelecommunicationDeviceSIMCardAssociationType,CCC,,0,0,0,,,,A data type for an association between a telecommunication device and a SIM card.,,,,nc,AssociationType,nc:AssociationType
+nc,TelephoneNumberType,nc:TelephoneNumberType,CCC,,0,0,0,,,,A data type for a telephone number for a telecommunication device.,,,,,,
+nc,TemperatureMeasureType,nc:TemperatureMeasureType,CCC,,0,0,0,,,,A data type for a measure of a temperature.,,,,nc,MeasureType,nc:MeasureType
+nc,TextType,nc:TextType,CSC,,0,0,0,,,,A data type for a character string.,,,,niem-xs,string,niem-xs:string
+nc,TimeMeasureType,nc:TimeMeasureType,CCC,,0,0,0,,,,A data type for a measure of an amount of time.,,,,nc,MeasureType,nc:MeasureType
+nc,TimeRangeType,nc:TimeRangeType,CCC,,0,0,0,,,,A data type for a start and end time.,,,,,,
+nc,TokenListSimpleType,nc:TokenListSimpleType,S,list,0,0,0,,,,A data type for a white space-delimited list of tokens.,xs,token,xs:token,,,
+nc,TokenListType,nc:TokenListType,CSC,,0,0,0,,,,A data type for a white space-delimited list of tokens.,nc,TokenListSimpleType,nc:TokenListSimpleType,,,
+nc,TransportationAssociationType,nc:TransportationAssociationType,CCC,,0,0,0,,,,A data type for an association between a conveyance and the people and/or goods it transported.,,,,nc,AssociationType,nc:AssociationType
+nc,TreatmentType,nc:TreatmentType,CCC,,0,0,0,,,,A data type for a treatment of a person for a mental or physical condition.,,,,nc,ActivityType,nc:ActivityType
+nc,UnsignedIntegerRangeType,nc:UnsignedIntegerRangeType,CCC,,0,0,0,,,,A data type for a range of unsigned integer values.,,,,,,
+nc,UTMCoordinateSimpleType,nc:UTMCoordinateSimpleType,S,atomic,0,0,0,,,,"A data type for a coordinate from the Universal Transverse Mercator (UTM) Coordinate System, which represents a location with a hemisphere, zone, an easting value, and a northing value.",xs,token,xs:token,,,
+nc,UTMCoordinateType,nc:UTMCoordinateType,CSC,atomic,0,0,0,,,,"A data type for a coordinate from the Universal Transverse Mercator (UTM) Coordinate System, which represents a location with a hemisphere, zone, an easting value, and a northing value.",nc,UTMCoordinateSimpleType,nc:UTMCoordinateSimpleType,,,
+nc,VehicleType,nc:VehicleType,CCC,,0,0,0,"car, truck, semi, trailer, tractor trailer, motorcycle",,"May be used to describe a Car, Automobile, Truck, Trailer, Wagon, Cart or other type of wheeled or caterpillar vehicle","A data type for a conveyance designed to carry an operator, passengers and/or cargo, over land.",,,,nc,ConveyanceType,nc:ConveyanceType
+nc,VelocityMeasureType,nc:VelocityMeasureType,CCC,,0,0,0,,,,A data type for a velocity measurement.,,,,nc,SpeedMeasureType,nc:SpeedMeasureType
+nc,VesselType,nc:VesselType,CCC,,0,0,0,"ship, boat, vessel",,,A data type for a mode of transportation capable of transport by water.,,,,nc,ConveyanceType,nc:ConveyanceType
+nc,VolumeMeasureType,nc:VolumeMeasureType,CCC,,0,0,0,,,,A data type for a measure of an amount of space.,,,,nc,MeasureType,nc:MeasureType
+nc,WeaponType,nc:WeaponType,CCC,,0,0,0,,,,A data type for a property item used as an instrument of attack or defense.,,,,,,
+nc,WeightMeasureType,nc:WeightMeasureType,CCC,,0,0,0,,,,A data type for a measure of a weight.,,,,nc,MeasureType,nc:MeasureType
+nc,ZuluDateTimeSimpleType,nc:ZuluDateTimeSimpleType,S,atomic,0,0,0,,,,A data type for a datetime constrained to always be ZULU.,xs,dateTime,xs:dateTime,,,
+nc,ZuluDateTimeType,nc:ZuluDateTimeType,CSC,,0,0,0,,,,A data type for a datetime constrained to always be ZULU.,nc,ZuluDateTimeSimpleType,nc:ZuluDateTimeSimpleType,,,
+xs,string,xs:string,S,atomic,0,0,0,,,,A data type for character strings in XML.,,,,,,
+xs,time,xs:time,S,atomic,0,0,0,,,"This structure has an optional time zone qualifier designated by appending -hh:00, where hh represent the number of hours the local time zone is behind Coordinated Universal Time (UTC).",A data type for an instant of time with the format hh:mm:ss.sss.,,,,,,
+xs,token,xs:token,S,atomic,0,0,0,,,"Possible values may not include line feed or tab characters, leading or trailing spaces, or internal sequences of two or more spaces.",A data type for tokenized strings.,,,,,,

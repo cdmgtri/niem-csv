@@ -1,0 +1,77 @@
+TypeNamespacePrefix,TypeName,QualifiedType,FacetName,FacetValue,Definition
+mo,AbbreviatedNameSimpleType,mo:AbbreviatedNameSimpleType,maxLength,30,Max length 30
+mo,AbbreviatedNameSimpleType,mo:AbbreviatedNameSimpleType,minLength,4,Min length 4
+ncic,ABRACodeSimpleType,ncic:ABRACodeSimpleType,enumeration,3M,3M
+ncic,ABRACodeSimpleType,ncic:ABRACodeSimpleType,enumeration,A AMER,ACER AMERICAN CORPORATION
+ncic,ABRACodeSimpleType,ncic:ABRACodeSimpleType,enumeration,A CHAL,ALLIS CHALMERS
+ncic,ABRACodeSimpleType,ncic:ABRACodeSimpleType,enumeration,A TOUR,AMERICAN TOURISTER
+ncic,ABRACodeSimpleType,ncic:ABRACodeSimpleType,enumeration,AGFA,AGFA
+ncic,ABRACodeSimpleType,ncic:ABRACodeSimpleType,enumeration,AIRLIN,AIRLINE (MANUFACTURED FOR MONTGOMERY WARD)
+ncic,ABRACodeSimpleType,ncic:ABRACodeSimpleType,enumeration,ALPINE,ALPINE
+ncic,ABRACodeSimpleType,ncic:ABRACodeSimpleType,enumeration,AMANA,AMANA
+ncic,ABRACodeSimpleType,ncic:ABRACodeSimpleType,enumeration,AMF,AMF
+ncic,ABRACodeSimpleType,ncic:ABRACodeSimpleType,enumeration,APPLE,APPLE
+j,AlcoholTestResultQuantitySimpleType,j:AlcoholTestResultQuantitySimpleType,pattern,\d{2},BAC Test Result (2 digits).
+mmucc,AlcoholTestStatusCodeSimpleType,mmucc:AlcoholTestStatusCodeSimpleType,enumeration,0,Test Not Given
+mmucc,AlcoholTestStatusCodeSimpleType,mmucc:AlcoholTestStatusCodeSimpleType,enumeration,1,Test Refused
+mmucc,AlcoholTestStatusCodeSimpleType,mmucc:AlcoholTestStatusCodeSimpleType,enumeration,2,Test Given
+mmucc,AlcoholTestStatusCodeSimpleType,mmucc:AlcoholTestStatusCodeSimpleType,enumeration,8,Not Reported
+mmucc,AlcoholTestStatusCodeSimpleType,mmucc:AlcoholTestStatusCodeSimpleType,enumeration,9,Unknown if Tested
+j,CommercialCarrierUSDOTNumberSimpleType,j:CommercialCarrierUSDOTNumberSimpleType,pattern,\d{7},US DOT Number (7 digits).
+scr,ConfidenceLevelCategoryCodeSimpleType,scr:ConfidenceLevelCategoryCodeSimpleType,enumeration,1,Low
+scr,ConfidenceLevelCategoryCodeSimpleType,scr:ConfidenceLevelCategoryCodeSimpleType,enumeration,2,Medium
+scr,ConfidenceLevelCategoryCodeSimpleType,scr:ConfidenceLevelCategoryCodeSimpleType,enumeration,3,High
+ncic,EYECodeSimpleType,ncic:EYECodeSimpleType,enumeration,BLK,BLACK
+ncic,EYECodeSimpleType,ncic:EYECodeSimpleType,enumeration,BLU,BLUE
+ncic,EYECodeSimpleType,ncic:EYECodeSimpleType,enumeration,BR0,BROWN
+ncic,EYECodeSimpleType,ncic:EYECodeSimpleType,enumeration,GRN,GREEN
+ncic,EYECodeSimpleType,ncic:EYECodeSimpleType,enumeration,GRY,GRAY
+ncic,EYECodeSimpleType,ncic:EYECodeSimpleType,enumeration,HAZ,HAZEL
+ncic,EYECodeSimpleType,ncic:EYECodeSimpleType,enumeration,MAR,MAROON
+ncic,EYECodeSimpleType,ncic:EYECodeSimpleType,enumeration,MUL,MULTICOLORED
+ncic,EYECodeSimpleType,ncic:EYECodeSimpleType,enumeration,PNK,PINK
+ncic,EYECodeSimpleType,ncic:EYECodeSimpleType,enumeration,XXX,UNKNOWN
+ncic,HAIRCodeSimpleType,ncic:HAIRCodeSimpleType,enumeration,0NG,ORANGE
+ncic,HAIRCodeSimpleType,ncic:HAIRCodeSimpleType,enumeration,BLK,BLACK
+ncic,HAIRCodeSimpleType,ncic:HAIRCodeSimpleType,enumeration,BLN,BLOND OR STRAWBERRY
+ncic,HAIRCodeSimpleType,ncic:HAIRCodeSimpleType,enumeration,BLU,BLUE
+ncic,HAIRCodeSimpleType,ncic:HAIRCodeSimpleType,enumeration,BR0,BROWN
+ncic,HAIRCodeSimpleType,ncic:HAIRCodeSimpleType,enumeration,GRN,GREEN
+ncic,HAIRCodeSimpleType,ncic:HAIRCodeSimpleType,enumeration,GRY,GRAY OR PARTIALLY GRAY
+ncic,HAIRCodeSimpleType,ncic:HAIRCodeSimpleType,enumeration,PLE,PURPLE
+ncic,HAIRCodeSimpleType,ncic:HAIRCodeSimpleType,enumeration,PNK,PINK
+ncic,HAIRCodeSimpleType,ncic:HAIRCodeSimpleType,enumeration,RED,RED OR AUBURN
+ncic,HAIRCodeSimpleType,ncic:HAIRCodeSimpleType,enumeration,SDY,SANDY
+ncic,HAIRCodeSimpleType,ncic:HAIRCodeSimpleType,enumeration,WHI,WHITE
+ncic,HAIRCodeSimpleType,ncic:HAIRCodeSimpleType,enumeration,XXX,UNKNOWN OR COMPLETELY BALD
+biom,HairColorCodeSimpleType,biom:HairColorCodeSimpleType,enumeration,BAL,Bald
+biom,HairColorCodeSimpleType,biom:HairColorCodeSimpleType,enumeration,BLK,Black
+biom,HairColorCodeSimpleType,biom:HairColorCodeSimpleType,enumeration,BLN,Blond or Strawberry
+biom,HairColorCodeSimpleType,biom:HairColorCodeSimpleType,enumeration,BLU,Blue
+biom,HairColorCodeSimpleType,biom:HairColorCodeSimpleType,enumeration,BRO,Brown
+biom,HairColorCodeSimpleType,biom:HairColorCodeSimpleType,enumeration,GRN,Green
+biom,HairColorCodeSimpleType,biom:HairColorCodeSimpleType,enumeration,GRY,Gray or Partially Gray
+biom,HairColorCodeSimpleType,biom:HairColorCodeSimpleType,enumeration,ONG,Orange
+biom,HairColorCodeSimpleType,biom:HairColorCodeSimpleType,enumeration,PLE,Purple
+biom,HairColorCodeSimpleType,biom:HairColorCodeSimpleType,enumeration,PNK,Pink
+biom,HairColorCodeSimpleType,biom:HairColorCodeSimpleType,enumeration,RED,Red or Auburn
+biom,HairColorCodeSimpleType,biom:HairColorCodeSimpleType,enumeration,SDY,Sandy
+biom,HairColorCodeSimpleType,biom:HairColorCodeSimpleType,enumeration,STR,Streaked
+biom,HairColorCodeSimpleType,biom:HairColorCodeSimpleType,enumeration,WHI,White
+biom,HairColorCodeSimpleType,biom:HairColorCodeSimpleType,enumeration,XXX,UNKNOWN
+ncic,VMACodeSimpleType,ncic:VMACodeSimpleType,enumeration,AUDI,AUDI
+ncic,VMACodeSimpleType,ncic:VMACodeSimpleType,enumeration,BMW,BMW
+ncic,VMACodeSimpleType,ncic:VMACodeSimpleType,enumeration,BMX,"BMX ATV'S , MOTORBIKES ETC"
+ncic,VMACodeSimpleType,ncic:VMACodeSimpleType,enumeration,CHEV,CHEVROLET
+ncic,VMACodeSimpleType,ncic:VMACodeSimpleType,enumeration,CHRY,"CHRYSLER CORPORATE NAME CHANGE TO FCA US, LLC 2015"
+ncic,VMACodeSimpleType,ncic:VMACodeSimpleType,enumeration,DUCA,DUCATI
+ncic,VMACodeSimpleType,ncic:VMACodeSimpleType,enumeration,F0RD,"FORD (ALSO SEE ENGLISH, FRENCH,GERMAN, AND ITALIAN FORD)"
+ncic,VMACodeSimpleType,ncic:VMACodeSimpleType,enumeration,GM,GENERAL MOTORS
+ncic,VMACodeSimpleType,ncic:VMACodeSimpleType,enumeration,GMC,GENERAL MOTORS CORP.
+ncic,VMACodeSimpleType,ncic:VMACodeSimpleType,enumeration,HYUN,HYUNDAI
+ncic,VMACodeSimpleType,ncic:VMACodeSimpleType,enumeration,JAGU,JAGUAR
+ncic,VMACodeSimpleType,ncic:VMACodeSimpleType,enumeration,KIA,KIA MOTORS CORPORATION
+ncic,VMACodeSimpleType,ncic:VMACodeSimpleType,enumeration,LEXS,LEXUS
+ncic,VMACodeSimpleType,ncic:VMACodeSimpleType,enumeration,MINI,MINISCOOTER
+ncic,VMACodeSimpleType,ncic:VMACodeSimpleType,enumeration,MITS,MITSUBISHI
+ncic,VMACodeSimpleType,ncic:VMACodeSimpleType,enumeration,T0YT,TOYOTA
