@@ -37,3 +37,14 @@ describe("Local CSVs", () => {
 // - Jest would otherwise pass in the release variable before it was loaded,
 //   due to the order in which it executes.
 unitTests.forEach( test => test( () => release ) );
+
+describe("Generate", () => {
+
+  test("#local files", async () => {
+    NIEM_CSV.generateReleaseFolder(release, "test/output/");
+
+    // TODO: Real check of output
+    expect(true).toBeTruthy();
+  });
+
+});

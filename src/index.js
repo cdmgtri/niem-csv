@@ -3,37 +3,17 @@ let NIEM = require("niem");
 let Papa = require("papaparse");
 let axios = require("axios").default;
 
-let { Model, Release, Namespace, LocalTerm, Property, Type, SubProperty, Facet } = NIEM.ModelObjects;
-
-let { NamespaceRow, LocalTermRow, PropertyRow, TypeRow, SubPropertyRow, FacetRow } = require("./types");
-
 let Utils = require("./utils");
 
-let csvStrings = {
-  Facet: "",
-  LocalTerminology: "",
-  Namespace: "",
-  Property: "",
-  Type: "",
-  TypeContainsProperty: "",
-  TypeUnion: ""
-};
+let { Release, Namespace, LocalTerm, Property, Type, SubProperty, Facet } = NIEM.ModelObjects;
 
-let loadFunctions = {
-  Facet: "loadFacet",
-  LocalTerminology: "loadLocalTerm",
-  Namespace: "loadNamespace",
-  Property: "loadProperty",
-  Type: "loadType",
-  TypeContainsProperty: "loadSubProperty",
-  // TypeUnion: ""
-};
+let { CSVs, NamespaceRow, LocalTermRow, PropertyRow, TypeRow, SubPropertyRow, FacetRow } = require("./types");
 
 /**
  * @todo Implement type unions and metadata
  * @todo Implement keywords, example content, and usage info
  */
-class NIEMLoaderCSV extends NIEM.Interfaces.NIEMSerializerInterface {
+class NIEMSerializerCSV extends NIEM.Interfaces.NIEMSerializerInterface {
 
   /**
    * @todo NIEM CSVs cannot currently represent multiple models
@@ -51,9 +31,9 @@ class NIEMLoaderCSV extends NIEM.Interfaces.NIEMSerializerInterface {
 
   /**
    * @param {Release} release
-   * @param {csvStrings} csvStrings
+   * @param {CSVs} CSVs
    */
-  static async loadRelease(release, csvStrings) {
+  static async loadRelease(release, CSVs) {
 
     let config = {
       header: true,
@@ -63,16 +43,17 @@ class NIEMLoaderCSV extends NIEM.Interfaces.NIEMSerializerInterface {
 
     let loadErrors = [];
 
-    for (let [key, value] of Object.entries(csvStrings)) {
+    // For each CSV...
+    for (let [key, csv] of Object.entries(CSVs)) {
 
-      // Parse CSV string
-      let results = Papa.parse(value, config);
-
-      if (value == "") {
+      if (csv.data == "") {
         // Skip if no data provided
         console.log("Skipping " + key);
         continue;
       }
+
+      // Parse CSV string
+      let results = Papa.parse(csv.data, config);
 
       if (results.errors.length > 0) {
         results.errors.forEach( error =>{
@@ -82,10 +63,9 @@ class NIEMLoaderCSV extends NIEM.Interfaces.NIEMSerializerInterface {
         });
       }
 
-      // Run the loader function on each row of the data
-      let loadFunction = loadFunctions[key];
+      // Run the loader function for the given CSV on each row of the data
       results.data.forEach( async row => {
-        await NIEMLoaderCSV[loadFunction](release, row);
+        await NIEMSerializerCSV["load" + key](release, row);
       })
 
     }
@@ -238,7 +218,34 @@ class NIEMLoaderCSV extends NIEM.Interfaces.NIEMSerializerInterface {
     return undefined;
   }
 
-  static async generateRelease() {
+  /**
+   * @param {Release} release
+   * @returns {Promise<CSVs>}
+   */
+  static async generateRelease(release) {
+
+    // Prep release data
+    CSVs.Namespace.objects = await release.namespaces.find();
+    CSVs.LocalTerm.objects = await release.localTerms.find();
+    CSVs.Property.objects = await release.properties.find();
+    CSVs.Type.objects = await release.types.find();
+    CSVs.Facet.objects = await release.facets.find();
+    CSVs.SubProperty.objects = await release.subProperties.find();
+
+    for (let [key, csv] of Object.entries(CSVs)) {
+
+      // Convert NIEM objects to NIEM CSV row objects
+      let rows = [];
+      for (let object of csv.objects) {
+        let row = await NIEMSerializerCSV["generate" + key](object);
+        rows.push( row );
+      }
+
+      // Convert CSV row objects to CSV strings
+      csv.data = Papa.unparse(rows);
+    }
+
+    return CSVs;
 
   }
 
@@ -374,20 +381,45 @@ class NIEMLoaderCSV extends NIEM.Interfaces.NIEMSerializerInterface {
     };
   }
 
+  /**
+   * @param {Release} release
+   * @param {String} folder
+   */
   static async loadReleaseFolder(release, folder) {
+
     let fs = require("fs");
     let path = require("path");
 
     folder = path.normalize(folder + "/");
 
-    csvStrings.Namespace = fs.readFileSync(folder + "Namespace.csv", "utf8");
-    csvStrings.LocalTerminology = fs.readFileSync(folder + "Glossary.csv", "utf8");
-    csvStrings.Property = fs.readFileSync(folder + "Property.csv", "utf8");
-    csvStrings.Type = fs.readFileSync(folder + "Type.csv", "utf-8");
-    csvStrings.Facet = fs.readFileSync(folder + "Facet.csv", "utf8");
-    csvStrings.TypeContainsProperty = fs.readFileSync(folder + "TypeContainsProperty.csv", "utf8");
+    // Load each CSV file as a string
+    for (let [key, csv] of Object.entries(CSVs)) {
+      csv.data = fs.readFileSync(folder + csv.fileName, "utf8");
+    }
 
-    return NIEMLoaderCSV.loadRelease(release, csvStrings);
+    // Load the given release from the set of NIEM CSV strings
+    return NIEMSerializerCSV.loadRelease(release, CSVs);
+
+  }
+
+  /**
+   * @param {Release} release
+   * @param {String} folder
+   */
+  static async generateReleaseFolder(release, folder) {
+
+    let fs = require("fs");
+    let path = require("path");
+
+    folder = path.normalize(folder + "/");
+
+    let CSVs = await NIEMSerializerCSV.generateRelease(release);
+
+    // Write each CSV data string to a file
+    for (let [key, csv] of Object.entries(CSVs)) {
+      fs.writeFileSync(folder + csv.fileName, csv.data);
+    }
+
   }
 
   /**
@@ -401,67 +433,15 @@ class NIEMLoaderCSV extends NIEM.Interfaces.NIEMSerializerInterface {
     }
 
     csvStrings.Property = await axios.get(url + "Property.csv");
-    return NIEMLoaderCSV.loadRelease(release, csvStrings);
+    return NIEMSerializerCSV.loadRelease(release, csvStrings);
   }
 
   static async loadReleaseGitHub(release, tag) {
     let url = `https://raw.githubusercontent.com/NIEM/NIEM-Releases/${tag}/csv/${tag}`;
-    return NIEMLoaderCSV.loadReleaseURL(release, url);
+    return NIEMSerializerCSV.loadReleaseURL(release, url);
   }
 
 
 }
 
-
-/**
- * Loads properties from a CSV file to the given release.
- *
- * @param {Object[]} rows
- * @param {Function} addFunction
- * @param {Function} loadFunction
- */
-async function loadFile(rows, addFunction, loadFunction) {
-
-  rows.forEach( async row => {
-    let results = await loadFunction()
-    await addFunction
-  })
-
-  rows.forEach( async row =>{
-    await release.properties.add({
-      prefix: row.PropertyNamespacePrefix,
-      name: row.PropertyName,
-      typeQName: row.QualifiedType,
-      definition: row.Definition,
-      groupQName: row.SubstitutionGroupQualifiedProperty,
-      isElement: getBoolean(row.IsElement),
-      isAbstract: getBoolean(row.IsAbstract)
-    });
-  });
-
-  console.log("Loaded " + rows.length + " properties");
-
-}
-
-/**
- * Loads properties from a CSV file to the given release.
- *
- * @param {Release} release
- * @param {PropertyRow} row
- */
-async function loadProperty(release, row) {
-
-  return release.properties.add({
-    prefix: row.PropertyNamespacePrefix,
-    name: row.PropertyName,
-    typeQName: row.QualifiedType,
-    definition: row.Definition,
-    groupQName: row.SubstitutionGroupQualifiedProperty,
-    isElement: getBoolean(row.IsElement),
-    isAbstract: getBoolean(row.IsAbstract)
-  });
-
-}
-
-
-module.exports = NIEMLoaderCSV;
+module.exports = NIEMSerializerCSV;

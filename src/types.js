@@ -1,4 +1,36 @@
 
+let CSVType = {
+  fileName: "",
+  data: ""
+};
+
+let CSVs = {
+  Facet: {
+    fileName: "Facet.csv",
+    data: ""
+  },
+  LocalTerm: {
+    fileName: "Glossary.csv",
+    data: ""
+  },
+  Namespace: {
+    fileName: "Namespace.csv",
+    data: ""
+  },
+  Property: {
+    fileName: "Property.csv",
+    data: ""
+  },
+  Type: {
+    fileName: "Type.csv",
+    data: ""
+  },
+  SubProperty: {
+    fileName: "TypeContainsProperty.csv",
+    data: ""
+  }
+};
+
 /**
  * C: Core
  * D: Domain
@@ -99,6 +131,8 @@ let LocalTermRow = {
 };
 
 module.exports = {
+  CSVs,
+  CSVType,
   NamespaceRow,
   NamespaceRowStyles,
   LocalTermRow,
