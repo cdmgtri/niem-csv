@@ -5,12 +5,12 @@ let NIEM_CSV = require("../src/index");
 let { Release } = NIEM.ModelObjects;
 
 let unitTests = [
-  require("./namespace"),
-  require("./localTerm"),
-  require("./property"),
-  require("./type"),
-  require("./facet"),
-  require("./subproperty")
+  require("./unit/namespace"),
+  require("./unit/localTerm"),
+  require("./unit/property"),
+  require("./unit/type"),
+  require("./unit/facet"),
+  require("./unit/subproperty")
 ];
 
 /** @type {Release} */
