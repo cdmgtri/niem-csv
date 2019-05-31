@@ -98,8 +98,9 @@ module.exports.getNamespaceRowStyle = (style) => {
 };
 
 /**
- * @return {Patterns}
+ * @param {Object} object
+ * @return {Object}
  */
-module.exports.getTypePattern = () => {
-
+module.exports.deepClone = (object) => {
+  return JSON.parse( JSON.stringify(object) );
 };

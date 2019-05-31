@@ -31,9 +31,9 @@ class NIEMSerializerCSV extends NIEM.Interfaces.NIEMSerializerInterface {
 
   /**
    * @param {Release} release
-   * @param {CSVs} CSVs
+   * @param {CSVs} csvObjects
    */
-  static async loadRelease(release, CSVs) {
+  static async loadRelease(release, csvObjects) {
 
     let config = {
       header: true,
@@ -44,7 +44,7 @@ class NIEMSerializerCSV extends NIEM.Interfaces.NIEMSerializerInterface {
     let loadErrors = [];
 
     // For each CSV...
-    for (let [key, csv] of Object.entries(CSVs)) {
+    for (let [key, csv] of Object.entries(csvObjects)) {
 
       if (csv.data == "") {
         // Skip if no data provided
@@ -224,15 +224,18 @@ class NIEMSerializerCSV extends NIEM.Interfaces.NIEMSerializerInterface {
    */
   static async generateRelease(release) {
 
-    // Prep release data
-    CSVs.Namespace.objects = await release.namespaces.find();
-    CSVs.LocalTerm.objects = await release.localTerms.find();
-    CSVs.Property.objects = await release.properties.find();
-    CSVs.Type.objects = await release.types.find();
-    CSVs.Facet.objects = await release.facets.find();
-    CSVs.SubProperty.objects = await release.subProperties.find();
+    /** @type {CSVs} */
+    let csvObjects = Utils.deepClone(CSVs);
 
-    for (let [key, csv] of Object.entries(CSVs)) {
+    // Prep release data
+    csvObjects.Namespace.objects = await release.namespaces.find();
+    csvObjects.LocalTerm.objects = await release.localTerms.find();
+    csvObjects.Property.objects = await release.properties.find();
+    csvObjects.Type.objects = await release.types.find();
+    csvObjects.Facet.objects = await release.facets.find();
+    csvObjects.SubProperty.objects = await release.subProperties.find();
+
+    for (let [key, csv] of Object.entries(csvObjects)) {
 
       // Convert NIEM objects to NIEM CSV row objects
       let rows = [];
@@ -245,7 +248,7 @@ class NIEMSerializerCSV extends NIEM.Interfaces.NIEMSerializerInterface {
       csv.data = Papa.unparse(rows);
     }
 
-    return CSVs;
+    return csvObjects;
 
   }
 
@@ -392,8 +395,11 @@ class NIEMSerializerCSV extends NIEM.Interfaces.NIEMSerializerInterface {
 
     folder = path.normalize(folder + "/");
 
+    /** @type {CSVs} */
+    let csvObjects = Utils.deepClone(CSVs);
+
     // Load each CSV file as a string
-    for (let [key, csv] of Object.entries(CSVs)) {
+    for (let [key, csv] of Object.entries(csvObjects)) {
       csv.data = fs.readFileSync(folder + csv.fileName, "utf8");
     }
 
