@@ -17,7 +17,7 @@ module.exports = (getRelease) => {
       release = getRelease();
     });
 
-    test("#concrete property", async () => {
+    test("concrete property", async () => {
       let p = await release.properties.get("nc:Activity");
       expect(p.prefix).toBe("nc");
       expect(p.name).toBe("Activity");
@@ -27,7 +27,7 @@ module.exports = (getRelease) => {
       expect(p.isAbstract).toBe(false);
     });
 
-    test("#abstract property", async () => {
+    test("abstract property", async () => {
       let p = await release.properties.get("nc:ActivityAugmentationPoint");
       expect(p.prefix).toBe("nc");
       expect(p.name).toBe("ActivityAugmentationPoint");
@@ -37,7 +37,7 @@ module.exports = (getRelease) => {
       expect(p.isAbstract).toBe(true);
     });
 
-    test("#attribute", async () => {
+    test("attribute", async () => {
       let p = await release.properties.get("nc:personNameInitialIndicator");
       expect(p.prefix).toBe("nc");
       expect(p.name).toBe("personNameInitialIndicator");
@@ -47,7 +47,7 @@ module.exports = (getRelease) => {
       expect(p.isAbstract).toBe(false);
     });
 
-    test("#substitution", async () => {
+    test("substitution", async () => {
       let p = await release.properties.get("scr:ActivityProcessCategoryCode");
       expect(p.prefix).toBe("scr");
       expect(p.typeQName).toBe("scr:ActivityProcessCategoryCodeType");
@@ -56,22 +56,22 @@ module.exports = (getRelease) => {
       expect(p.isAbstract).toBe(false);
     });
 
-    test("#property count", async () => {
+    test("property count", async () => {
       let properties = await release.properties.kinds.all();
       expect(properties.length).toBe(200);
     });
 
-    test("#element count", async () => {
+    test("element count", async () => {
       let elements = await release.properties.kinds.elements();
       expect(elements.length).toBe(199);
     });
 
-    test("#abstract counts", async () => {
+    test("abstract counts", async () => {
       let abstracts = await release.properties.kinds.abstracts();
       expect(abstracts.length).toBe(47);
     });
 
-    test("#attribute counts", async () => {
+    test("attribute counts", async () => {
       let attributes = await release.properties.kinds.attributes();
       expect(attributes.length).toBe(1);
     });
