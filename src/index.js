@@ -13,7 +13,7 @@ let { CSVs, NamespaceRow, LocalTermRow, PropertyRow, TypeRow, SubPropertyRow, Fa
  * @todo Implement type unions and metadata
  * @todo Implement keywords, example content, and usage info
  */
-class NIEMSerializerCSV extends NIEM.Interfaces.NIEMSerializerInterface {
+class NIEMSerializerCSV extends NIEM.Interfaces.NIEMFormatInterface {
 
   /**
    * @todo NIEM CSVs cannot currently represent multiple models

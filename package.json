@@ -1,8 +1,8 @@
 {
-  "name": "niem-loader-csv",
+  "name": "niem-csv",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest"
   },
@@ -10,11 +10,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/jest": "^24.0.13",
+    "@types/jest": "^24.0.15",
     "jest": "^24.8.0"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
+    "niem": "github:cdmgtri/niem",
     "papaparse": "^4.6.3"
   }
 }
