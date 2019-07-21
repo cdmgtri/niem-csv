@@ -5,7 +5,7 @@ let axios = require("axios").default;
 
 let Utils = require("./utils");
 
-let { Release, Namespace, LocalTerm, Property, Type, SubProperty, Facet } = NIEM.ModelObjects;
+let { Model, Release, Namespace, LocalTerm, Property, Type, SubProperty, Facet } = NIEM.ModelObjects;
 
 let { CSVs, NamespaceRow, LocalTermRow, PropertyRow, TypeRow, SubPropertyRow, FacetRow } = require("./types");
 
@@ -24,9 +24,26 @@ class NIEMSerializerCSV extends NIEM.Interfaces.NIEMFormatInterface {
 
   /**
    * @todo NIEM CSVs cannot currently represent multiple releases
+   *
+   * @param {Model} model
+   * @param {{releaseKey: String, csvObjects: CSVs}[]} modelInput
    */
-  static async loadModel() {
-    return undefined;
+  static async loadModel(model, modelInput) {
+
+    let loadErrors = [];
+
+    for (let releaseInput of modelInput) {
+      // Create a new release
+      let release = await model.releases.add({
+        releaseKey: releaseInput.releaseKey
+      });
+
+      // Load the new release
+      let errors = await NIEMSerializerCSV.loadRelease(release, releaseInput.csvObjects);
+      loadErrors.push(...errors);
+    }
+
+    return loadErrors;
   }
 
   /**
@@ -57,8 +74,11 @@ class NIEMSerializerCSV extends NIEM.Interfaces.NIEMFormatInterface {
 
       if (results.errors.length > 0) {
         results.errors.forEach( error =>{
-          error.csv = key;
           error.row += 2;  // Adjust row num for zero-based index and header row
+          error.csv = key;
+          error.releaseKey = release.releaseKey;
+          error.modelKey = release.modelKey;
+          error.userKey = release.userKey;
           loadErrors.push(error);
         });
       }
@@ -384,47 +404,35 @@ class NIEMSerializerCSV extends NIEM.Interfaces.NIEMFormatInterface {
     };
   }
 
-  /**
-   * @param {Release} release
-   * @param {String} folder
-   */
-  static async loadReleaseFolder(release, folder) {
+  static async loadModelFolder(model, folder) {
 
-    let fs = require("fs");
-    let path = require("path");
+    let modelInput = [];
 
-    folder = path.normalize(folder + "/");
+    // For each subdirectory, load the CSV files
+    Utils.getSubFolders(folder).forEach( subFolder => {
 
-    /** @type {CSVs} */
-    let csvObjects = Utils.deepClone(CSVs);
+      let releaseInput = {
+        releaseKey: Utils.getFolderName(subFolder),
+        csvObjects: loadCSVFolder(subFolder)
+      };
 
-    // Load each CSV file as a string
-    for (let [key, csv] of Object.entries(csvObjects)) {
-      csv.data = fs.readFileSync(folder + csv.fileName, "utf8");
-    }
+      modelInput.push(releaseInput);
 
-    // Load the given release from the set of NIEM CSV strings
-    return NIEMSerializerCSV.loadRelease(release, CSVs);
+    });
 
+    return NIEMSerializerCSV.loadModel(model, modelInput);
   }
 
   /**
    * @param {Release} release
    * @param {String} folder
    */
-  static async generateReleaseFolder(release, folder) {
+  static async loadReleaseFolder(release, folder) {
 
-    let fs = require("fs");
-    let path = require("path");
+    let csvObjects = loadCSVFolder(folder);
 
-    folder = path.normalize(folder + "/");
-
-    let CSVs = await NIEMSerializerCSV.generateRelease(release);
-
-    // Write each CSV data string to a file
-    for (let [key, csv] of Object.entries(CSVs)) {
-      fs.writeFileSync(folder + csv.fileName, csv.data);
-    }
+    // Load the given release from the set of NIEM CSV strings
+    return NIEMSerializerCSV.loadRelease(release, csvObjects);
 
   }
 
@@ -438,15 +446,59 @@ class NIEMSerializerCSV extends NIEM.Interfaces.NIEMFormatInterface {
       url += "/";
     }
 
-    csvStrings.Property = await axios.get(url + "Property.csv");
-    return NIEMSerializerCSV.loadRelease(release, csvStrings);
+    /** @type {CSVs} */
+    let csvObjects = Utils.deepClone(CSVs);
+
+    // Load each CSV file as a string
+    for (let [key, csv] of Object.entries(csvObjects)) {
+      let response = await axios.get(url + csv.fileName);
+      csv.data = response.data;
+    }
+
+    return NIEMSerializerCSV.loadRelease(release, csvObjects);
   }
 
-  static async loadReleaseGitHub(release, tag) {
-    let url = `https://raw.githubusercontent.com/NIEM/NIEM-Releases/${tag}/csv/${tag}`;
-    return NIEMSerializerCSV.loadReleaseURL(release, url);
+  /**
+   * @param {Release} release
+   * @param {String} folder
+   */
+  static async generateReleaseFolder(release, folder) {
+
+    let fs = require("fs");
+    let path = require("path");
+
+    folder = path.normalize(folder + "/");
+
+    let csvObjects = await NIEMSerializerCSV.generateRelease(release);
+
+    // Write each CSV data string to a file
+    for (let [key, csv] of Object.entries(csvObjects)) {
+      fs.writeFileSync(folder + csv.fileName, csv.data);
+    }
+
   }
 
+}
+
+/**
+ * @param {String}
+ */
+function loadCSVFolder(folder) {
+
+  let fs = require("fs");
+  let path = require("path");
+
+  folder = path.normalize(folder + "/");
+
+  /** @type {CSVs} */
+  let csvObjects = Utils.deepClone(CSVs);
+
+  // Load each CSV file as a string
+  for (let [key, csv] of Object.entries(csvObjects)) {
+    csv.data = fs.readFileSync(folder + csv.fileName, "utf8");
+  }
+
+  return csvObjects;
 
 }
 

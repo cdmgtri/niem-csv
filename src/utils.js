@@ -104,3 +104,28 @@ module.exports.getNamespaceRowStyle = (style) => {
 module.exports.deepClone = (object) => {
   return JSON.parse( JSON.stringify(object) );
 };
+
+/**
+ * Gets the full path of each subfolder from the given folder
+ * @param {String[]} folder
+ */
+module.exports.getSubFolders = (folder) => {
+
+  let fs = require("fs");
+  let path = require("path");
+
+  return fs
+    .readdirSync(folder)
+    .map( name => path.join(folder, name) )
+    .filter( folder => fs.lstatSync(folder).isDirectory() );
+
+};
+
+/**
+ * Gets the last subfolder or file name from the given folder
+ * @param {String} folder
+ */
+module.exports.getFolderName = (folder) => {
+  let path = require("path");
+  return path.normalize(folder).split("/").pop();
+};
