@@ -13,7 +13,7 @@ let { CSVs, NamespaceRow, LocalTermRow, PropertyRow, TypeRow, SubPropertyRow, Fa
  * @todo Implement type unions and metadata
  * @todo Implement keywords, example content, and usage info
  */
-class NIEMSerializerCSV extends NIEM.Interfaces.NIEMFormatInterface {
+class NIEM_CSV extends NIEM.Interfaces.NIEMFormatInterface {
 
   /**
    * @todo NIEM CSVs cannot currently represent multiple models
@@ -39,7 +39,7 @@ class NIEMSerializerCSV extends NIEM.Interfaces.NIEMFormatInterface {
       });
 
       // Load the new release
-      let errors = await NIEMSerializerCSV.loadRelease(release, releaseInput.csvObjects);
+      let errors = await NIEM_CSV.loadRelease(release, releaseInput.csvObjects);
       loadErrors.push(...errors);
     }
 
@@ -85,7 +85,7 @@ class NIEMSerializerCSV extends NIEM.Interfaces.NIEMFormatInterface {
 
       // Run the loader function for the given CSV on each row of the data
       results.data.forEach( async row => {
-        await NIEMSerializerCSV["load" + key](release, row);
+        await NIEM_CSV["load" + key](release, row);
       })
 
     }
@@ -260,7 +260,7 @@ class NIEMSerializerCSV extends NIEM.Interfaces.NIEMFormatInterface {
       // Convert NIEM objects to NIEM CSV row objects
       let rows = [];
       for (let object of csv.objects) {
-        let row = await NIEMSerializerCSV["generate" + key](object);
+        let row = await NIEM_CSV["generate" + key](object);
         rows.push( row );
       }
 
@@ -420,7 +420,7 @@ class NIEMSerializerCSV extends NIEM.Interfaces.NIEMFormatInterface {
 
     });
 
-    return NIEMSerializerCSV.loadModel(model, modelInput);
+    return NIEM_CSV.loadModel(model, modelInput);
   }
 
   /**
@@ -432,7 +432,7 @@ class NIEMSerializerCSV extends NIEM.Interfaces.NIEMFormatInterface {
     let csvObjects = loadCSVFolder(folder);
 
     // Load the given release from the set of NIEM CSV strings
-    return NIEMSerializerCSV.loadRelease(release, csvObjects);
+    return NIEM_CSV.loadRelease(release, csvObjects);
 
   }
 
@@ -455,7 +455,7 @@ class NIEMSerializerCSV extends NIEM.Interfaces.NIEMFormatInterface {
       csv.data = response.data;
     }
 
-    return NIEMSerializerCSV.loadRelease(release, csvObjects);
+    return NIEM_CSV.loadRelease(release, csvObjects);
   }
 
   /**
@@ -469,7 +469,7 @@ class NIEMSerializerCSV extends NIEM.Interfaces.NIEMFormatInterface {
 
     folder = path.normalize(folder + "/");
 
-    let csvObjects = await NIEMSerializerCSV.generateRelease(release);
+    let csvObjects = await NIEM_CSV.generateRelease(release);
 
     // Write each CSV data string to a file
     for (let [key, csv] of Object.entries(csvObjects)) {
@@ -502,4 +502,4 @@ function loadCSVFolder(folder) {
 
 }
 
-module.exports = NIEMSerializerCSV;
+module.exports = NIEM_CSV;
