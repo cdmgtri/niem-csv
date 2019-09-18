@@ -1,7 +1,7 @@
 
-let NIEM = require("niem");
+let NIEM = require("niem-model");
 
-let { Release } = NIEM.ModelObjects;
+let { Release } = NIEM;
 
 /** @type {Release} */
 let release;
@@ -57,22 +57,22 @@ module.exports = (getRelease) => {
     });
 
     test("property count", async () => {
-      let properties = await release.properties.kinds.all();
+      let properties = await release.properties.find();
       expect(properties.length).toBe(200);
     });
 
     test("element count", async () => {
-      let elements = await release.properties.kinds.elements();
+      let elements = await release.properties.find({isElement: true});
       expect(elements.length).toBe(199);
     });
 
     test("abstract counts", async () => {
-      let abstracts = await release.properties.kinds.abstracts();
+      let abstracts = await release.properties.find({isAbstract: true});
       expect(abstracts.length).toBe(47);
     });
 
     test("attribute counts", async () => {
-      let attributes = await release.properties.kinds.attributes();
+      let attributes = await release.properties.find({isElement: false});
       expect(attributes.length).toBe(1);
     });
 

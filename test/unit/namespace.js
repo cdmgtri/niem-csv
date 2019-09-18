@@ -1,7 +1,7 @@
 
-let NIEM = require("niem");
+let NIEM = require("niem-model");
 
-let { Release } = NIEM.ModelObjects;
+let { Release } = NIEM;
 
 /** @type {Release} */
 let release;

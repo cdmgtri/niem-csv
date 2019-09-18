@@ -1,8 +1,8 @@
 
-let NIEM = require("niem");
+let NIEM = require("niem-model");
 let NIEM_CSV = require("../src/index");
 
-let { Release } = NIEM.ModelObjects;
+let { Release } = NIEM;
 
 let unitTests = [
   require("./unit/namespace"),
@@ -24,7 +24,7 @@ let niem = new NIEM();
 describe("loadReleaseFolder", () => {
 
   beforeAll( async () => {
-    release = await niem.releases.sandbox("user", "test", "1.0");
+    release = await niem.releases.add("user", "test", "1.0");
     errors = await NIEM_CSV.loadReleaseFolder(release, "test/data/");
   });
 
@@ -45,7 +45,7 @@ describe("loadReleaseURL", () => {
 
   beforeAll( async () => {
     let url = "https://raw.githubusercontent.com/NIEM/NIEM-Releases/master/csv/niem-4.1";
-    release = await niem.releases.sandbox("user", "niem", "4.1");
+    release = await niem.releases.add("user", "niem", "4.1");
     errors = await NIEM_CSV.loadReleaseURL(release, url);
   }, 60000);
 

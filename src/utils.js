@@ -1,8 +1,7 @@
 
-let NIEM = require("niem");
+let NIEM = require("niem-model");
 
-let { NamespaceStyles } = NIEM.ModelObjects.Namespace;
-let { Patterns } = NIEM.ModelObjects.Type;
+let { StyleType } = NIEM.Namespace;
 
 let { NamespaceRowStyles } = require("../src/types");
 
@@ -29,7 +28,7 @@ module.exports.convertBoolean = function convertBoolean(bool) {
  * @param {String} qname
  */
 module.exports.getPrefix = (qname) => {
-  if (qname.includes(":")) {
+  if (qname && qname.includes(":")) {
     return qname.split(":")[0];
   }
   return "";
@@ -39,7 +38,7 @@ module.exports.getPrefix = (qname) => {
  * @param {String} qname
  */
 module.exports.getName = (qname) => {
-  if (qname.includes(":")) {
+  if (qname && qname.includes(":")) {
     return qname.split(":")[1];
   }
   return qname;
@@ -47,8 +46,7 @@ module.exports.getName = (qname) => {
 
 /**
  * Coverts a CSV namespace row style to a NIEM Namespace object style
- * @param {NamespaceStyles} style
- * @returns {NamespaceRowStyles}
+ * @param {NamespaceRowStyles} style
  */
 module.exports.getNamespaceStyle = (style) => {
   switch (style) {
@@ -72,8 +70,7 @@ module.exports.getNamespaceStyle = (style) => {
 
 /**
  * Converts a NIEM Namespace object style to a CSV namespace row style
- * @param {NamespaceRowStyles} style
- * @returns {NamespaceStyles}
+ * @param {StyleType} style
  */
 module.exports.getNamespaceRowStyle = (style) => {
   switch (style) {

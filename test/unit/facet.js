@@ -1,7 +1,7 @@
 
-let NIEM = require("niem");
+let NIEM = require("niem-model");
 
-let { Release, Facet } = NIEM.ModelObjects;
+let { Release, Facet } = NIEM;
 
 /** @type {Release} */
 let release;
@@ -29,12 +29,12 @@ module.exports = (getRelease) => {
     });
 
     test("codes", async () => {
-      let codes = await release.facets.find({kind: "enumeration"});
+      let codes = await release.facets.find({style: "enumeration"});
       expect(codes.length).toBe(72);
     });
 
     test("patterns", async () => {
-      let patterns = await release.facets.find({kind: "pattern"});
+      let patterns = await release.facets.find({style: "pattern"});
       expect(patterns.length).toBe(2);
     });
 

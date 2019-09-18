@@ -1,19 +1,20 @@
 
-let NIEM = require("niem");
+let NIEM = require("niem-model");
 let Papa = require("papaparse");
 let axios = require("axios").default;
 
 let Utils = require("./utils");
 
-let { Model, Release, Namespace, LocalTerm, Property, Type, SubProperty, Facet } = NIEM.ModelObjects;
+let { Model, Release, Namespace, LocalTerm, Property, Type, SubProperty, Facet } = NIEM;
 
 let { CSVs, NamespaceRow, LocalTermRow, PropertyRow, TypeRow, SubPropertyRow, FacetRow } = require("./types");
 
 /**
  * @todo Implement type unions and metadata
  * @todo Implement keywords, example content, and usage info
+ * @todo Implement niem-model Format interface
  */
-class NIEM_CSV extends NIEM.Interfaces.NIEMFormatInterface {
+class NIEM_CSV {
 
   /**
    * @todo NIEM CSVs cannot currently represent multiple models
@@ -34,9 +35,7 @@ class NIEM_CSV extends NIEM.Interfaces.NIEMFormatInterface {
 
     for (let releaseInput of modelInput) {
       // Create a new release
-      let release = await model.releases.add({
-        releaseKey: releaseInput.releaseKey
-      });
+      let release = await model.releases.add(releaseInput.releaseKey);
 
       // Load the new release
       let errors = await NIEM_CSV.loadRelease(release, releaseInput.csvObjects);
@@ -100,15 +99,14 @@ class NIEM_CSV extends NIEM.Interfaces.NIEMFormatInterface {
    */
   static async loadNamespace(release, row) {
 
-    return release.namespaces.add({
-      prefix: row.NamespacePrefix,
-      fileName: row.NamespaceFile,
-      uri: row.VersionURI,
-      version: row.VersionReleaseNumber,
-      style: Utils.getNamespaceStyle(row.NamespaceStyle),
-      isPreGenerated: Utils.getBoolean(row.NamespaceIsExternallyGenerated),
-      definition: row.Definition
-    });
+    return release.namespaces.add(
+      row.NamespacePrefix,
+      Utils.getNamespaceStyle(row.NamespaceStyle),
+      row.VersionURI,
+      row.NamespaceFile,
+      row.Definition,
+      row.VersionReleaseNumber
+    );
 
   }
 
@@ -118,12 +116,12 @@ class NIEM_CSV extends NIEM.Interfaces.NIEMFormatInterface {
    */
   static async loadLocalTerm(release, row) {
 
-    return release.localTerms.add({
-      prefix: row.NamespacePrefix,
-      term: row.GlossaryTerm,
-      literal: row.GlossaryLiteral,
-      definition: row.GlossaryDefinition
-    });
+    return release.localTerms.add(
+      row.NamespacePrefix,
+      row.GlossaryTerm,
+      row.GlossaryLiteral,
+      row.GlossaryDefinition
+    );
 
   }
 
@@ -135,15 +133,16 @@ class NIEM_CSV extends NIEM.Interfaces.NIEMFormatInterface {
    */
   static async loadProperty(release, row) {
 
-    return release.properties.add({
-      prefix: row.PropertyNamespacePrefix,
-      name: row.PropertyName,
-      typeQName: row.QualifiedType,
-      definition: row.Definition,
-      groupQName: row.SubstitutionGroupQualifiedProperty,
-      isElement: Utils.getBoolean(row.IsElement),
-      isAbstract: Utils.getBoolean(row.IsAbstract)
-    });
+    let property = await release.properties.add(
+      row.PropertyNamespacePrefix,
+      row.PropertyName,
+      row.Definition,
+      row.QualifiedType,
+      row.SubstitutionGroupQualifiedProperty,
+      Utils.getBoolean(row.IsElement),
+      Utils.getBoolean(row.IsAbstract)
+    );
+    return property;
 
   }
 
@@ -187,13 +186,13 @@ class NIEM_CSV extends NIEM.Interfaces.NIEMFormatInterface {
       }
     }
 
-    return release.types.add({
-      prefix: row.TypeNamespacePrefix,
-      name: row.TypeName,
-      definition: row.Definition,
-      baseQName: row.SimpleQualifiedType || row.ParentQualifiedType,
-      pattern
-    });
+    return release.types.add(
+      row.TypeNamespacePrefix,
+      row.TypeName,
+      row.Definition,
+      pattern,
+      row.SimpleQualifiedType || row.ParentQualifiedType
+    );
 
   }
 
@@ -202,12 +201,12 @@ class NIEM_CSV extends NIEM.Interfaces.NIEMFormatInterface {
    * @param {FacetRow} row
    */
   static async loadFacet(release, row) {
-    return release.facets.add({
-      typeQName: row.QualifiedType,
-      kind: row.FacetName,
-      value: row.FacetValue,
-      definition: row.Definition
-    });
+    return release.facets.add(
+      row.QualifiedType,
+      row.FacetValue,
+      row.Definition,
+      row.FacetName
+    );
   }
 
   /**
@@ -215,13 +214,13 @@ class NIEM_CSV extends NIEM.Interfaces.NIEMFormatInterface {
    * @param {SubPropertyRow} row
    */
   static async loadSubProperty(release, row) {
-    return release.subProperties.add({
-      typeQName: row.QualifiedType,
-      propertyQName: row.QualifiedProperty,
-      min: row.MinOccurs,
-      max: row.MaxOccurs,
-      definition: row.Definition
-    });
+    return release.subProperties.add(
+      row.QualifiedType,
+      row.QualifiedProperty,
+      row.MinOccurs,
+      row.MaxOccurs,
+      row.Definition
+    );
   }
 
   /**
@@ -355,15 +354,17 @@ class NIEM_CSV extends NIEM.Interfaces.NIEMFormatInterface {
       ParentQualifiedType: ""
     }
 
-    if (type.baseQName.endsWith("SimpleType") || Utils.getPrefix(type.baseQName)) {
-      typeRow.SimpleTypeNamespacePrefix = Utils.getPrefix(type.baseQName);
-      typeRow.SimpleTypeName = Utils.getName(type.baseQName);
-      typeRow.SimpleQualifiedType = type.baseQName;
-    }
-    else {
-      typeRow.ParentTypeNamespacePrefix = Utils.getPrefix(type.baseQName);
-      typeRow.ParentTypeName= Utils.getName(type.baseQName);
-      typeRow.ParentQualifiedType = type.baseQName;
+    if (type.baseQName) {
+      if (type.baseQName.endsWith("SimpleType") || Utils.getPrefix(type.baseQName)) {
+        typeRow.SimpleTypeNamespacePrefix = Utils.getPrefix(type.baseQName);
+        typeRow.SimpleTypeName = Utils.getName(type.baseQName);
+        typeRow.SimpleQualifiedType = type.baseQName;
+      }
+      else {
+        typeRow.ParentTypeNamespacePrefix = Utils.getPrefix(type.baseQName);
+        typeRow.ParentTypeName= Utils.getName(type.baseQName);
+        typeRow.ParentQualifiedType = type.baseQName;
+      }
     }
 
     return typeRow;
