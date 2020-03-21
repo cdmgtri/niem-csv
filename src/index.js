@@ -83,9 +83,14 @@ class NIEM_CSV {
       }
 
       // Run the loader function for the given CSV on each row of the data
-      results.data.forEach( async row => {
-        await NIEM_CSV["load" + key](release, row);
-      })
+      for (let row of results.data) {
+        try {
+          await NIEM_CSV["load" + key](release, row);
+        }
+        catch (err) {
+          console.log("CSV import error", key, row, err);
+        }
+      }
 
     }
 

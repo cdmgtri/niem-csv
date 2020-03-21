@@ -1,5 +1,5 @@
 
-let NIEM = require("niem-model");
+let { NIEM } = require("niem-model");
 let NIEM_CSV = require("../src/index");
 
 let { Release } = NIEM;
@@ -44,7 +44,7 @@ describe("loadReleaseFolder", () => {
 describe("loadReleaseURL", () => {
 
   beforeAll( async () => {
-    let url = "https://raw.githubusercontent.com/NIEM/NIEM-Releases/master/csv/niem-4.1";
+    let url = "https://raw.githubusercontent.com/NIEM/NIEM-Releases/niem-4.1/csv/niem-4.1";
     release = await niem.releases.add("user", "niem", "4.1");
     errors = await NIEM_CSV.loadReleaseURL(release, url);
   }, 60000);
