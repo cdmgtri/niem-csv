@@ -16,6 +16,6 @@
   "dependencies": {
     "axios": "^0.18.1",
     "niem-model": "github:cdmgtri/niem-model#dev",
-    "papaparse": "^4.6.3"
+    "papaparse": "^5.2.0"
   }
 }
